@@ -1,0 +1,18 @@
+# Compile of fifo.v was successful.
+# Compile of LPM_ADD_SUB_ip.v was successful.
+# Compile of LPM_MULT_ip.v was successful.
+# Compile of mac.sv was successful.
+# Compile of memory.v was successful.
+# Compile of rom.v was successful.
+# Compile of testbench.v was successful.
+# Compile of vectored_mac.sv failed with 1 errors.
+# 8 compiles, 1 failed with 1 error.
+# Compile of vectored_mac.sv failed with 3 errors.
+# Compile of vectored_mac.sv failed with 2 errors.
+# Compile of vectored_mac.sv failed with 1 errors.
+# Compile of vectored_mac.sv failed with 3 errors.
+# Compile of vectored_mac.sv failed with 3 errors.
+# Compile of vectored_mac.sv was successful with warnings.
+# Compile of vectored_mac.sv was successful.
+# Compile of vectored_mac.sv failed with 3 errors.
+# Compile of vectored_mac.sv was successful.
