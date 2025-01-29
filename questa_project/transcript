@@ -16,3 +16,6 @@
 # Compile of vectored_mac.sv was successful.
 # Compile of vectored_mac.sv failed with 3 errors.
 # Compile of vectored_mac.sv was successful.
+# Compile of vectored_mac_fifo.sv failed with 1 errors.
+# Compile of vectored_mac_fifo.sv failed with 2 errors.
+# Compile of vectored_mac_fifo.sv was successful.
