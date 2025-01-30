@@ -65,10 +65,8 @@ module minilab1(
     // Memory input/output signals to be driven from SM
     wire mem_wait, data_valid, mem_read;
     wire [3:0]addr;                 //addr only goes 0 to 8 -> can represent in 4 bits
-    
-    //TODO: need to parse this output from mem file into respective FIFOS. controlled from SM
-    // otherwise, i have no clue how to do this.
     wire [63:0] readdata;
+
     // TODO: add declarations for wires used by the FIFO, MAC, and memwrapper
 
     //=======================================================
@@ -90,7 +88,9 @@ module minilab1(
         .full(full),
         .empty(empty),
         // Outputs
-        .dataout());
+        .dataout(),
+        .EnOut(),
+        .Bout());
 
     // TODO: instantiate the memory module, and store values into FIFO in SM below
     // TODO: where do we give the memory module the file to read? -> happens through rom.v file
@@ -138,7 +138,7 @@ module minilab1(
                     addr = 4'h0;
                     mem_read = 1'b1;
                     if (!mem_wait) begin
-                        ;
+                        
                         state <= FILLA;
                     end 
                 end
