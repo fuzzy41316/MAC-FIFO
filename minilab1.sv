@@ -25,9 +25,10 @@ module minilab1(
 );
     localparam DATA_WIDTH = 8;
 
-    localparam FILL = 2'd0;
-    localparam EXEC = 2'd1;
-    localparam DONE = 2'd2;
+    localparam FILLA = 2'd0;
+    localparam FILLB = 2'd1;
+    localparam EXEC = 2'd2;
+    localparam DONE = 2'd3;
 
     parameter HEX_0 = 7'b1000000;		// zero
     parameter HEX_1 = 7'b1111001;		// one
@@ -54,9 +55,11 @@ module minilab1(
     reg [1:0] state;
     reg [7:0] datain [0:DATA_WIDTH-1];
     reg [23:0] result;
+    
 
     wire rst_n;
-    wire rden, wren, full, empty;
+    wire rden, wren;
+    wire [7:0] full, empty;        //will read in a left to right (always) can check the whole thing is full/empty using end bits
     wire [7:0] dataout [0:DATA_WIDTH-1];
 
     // TODO: add declarations for wires used by the FIFO, MAC, and memwrapper
@@ -75,16 +78,16 @@ module minilab1(
         .Bin(),
         .Cout(),
         .datain(),
-        .rden(),
-        .wren(),
-        .full(),
-        .empty(),
+        .rden(rden),
+        .wren(wren),
+        .full(full),
+        .empty(empty),
         // Outputs
         .dataout());
 
     // TODO: instantiate the memory module, and store values into FIFO in SM below
-
-    memwrapper memory(
+    // TODO: where do we give the memory module the file to read?
+    mem_wrapper memory(
         // Inputs
         .clk(CLOCK_50),
         .reset_n(rst_n),
@@ -107,12 +110,49 @@ module minilab1(
     integer j;
 
     // State machine
-    always @(posedge CLOCK_50, negedge rst_n) 
-    begin
+    always @(posedge CLOCK_50, negedge rst_n) begin
+        if (~rst_n) begin 
+            state <= FILL;
+            result <= {(DATA_WIDTH*3){1'b0}};
+            // clear empty and full references for all FIFO units
+            empty <= {DATA_WIDTH{1'b1}}; 
+            full <= {DATA_WIDTH{1'b0}}; 
+            for (j=0; j<8; j++) begin 
+                datain[j] <= {DATA_WIDTH{1'b0}};
+            end 
+        end
+        else begin
+            case(state) 
+                FILLB: begin 
+                    //TODO: single call to mem module with addr 0
+                end
+                
+                FILLA: begin 
+                    if (full[7]) begin
+                        state <= EXEC;
+                    end
+                    else begin 
+                        //TODO: mutiple calls to mem module starting at addr 1, ending at addr 8
+                    end
+                end
+
+                EXEC: begin 
+                    if (empty[7]) 
+                        state <= DONE;
+                end
+
+                DONE: begin 
+
+                end
+            endcase
+
         // TODO: Input data to memory from input_mem.mif
+            // B address is 0, A address starts at 1 and goes to 8 (hex)
+
 
         // TODO: Read data from memory into FIFO
 
         // TODO: Perform MAC on data from FIFO
+        end
     end
 endmodule
