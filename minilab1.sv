@@ -25,10 +25,8 @@ module minilab1(
 );
     localparam DATA_WIDTH = 8;
 
-    localparam FILLA = 2'd0;
-    localparam FILLB = 2'd1;
-    localparam EXEC = 2'd2;
-    localparam DONE = 2'd3;
+    typdef enum reg[2:0] {FILLA, FILLB, WAIT, EXEC, DONE} state_t;
+    state_t state, next_state;
 
     parameter HEX_0 = 7'b1000000;		// zero
     parameter HEX_1 = 7'b1111001;		// one
@@ -52,11 +50,8 @@ module minilab1(
     //  REG/WIRE declarations
     //======================================================
 
-    reg [1:0] state;
     reg [7:0] datain [0:DATA_WIDTH-1];
     reg [23:0] result;
-    
-
     wire rst_n;
     wire rden, wren;
     wire [7:0] full, empty;        //will read in a left to right (always) can check the whole thing is full/empty using end bits
@@ -66,6 +61,8 @@ module minilab1(
     wire mem_wait, data_valid, mem_read;
     wire [3:0]addr;                 //addr only goes 0 to 8 -> can represent in 4 bits
     wire [63:0] readdata;
+
+    wire [7:0] Bin [DATA_WIDTH-1:0];
 
     // TODO: add declarations for wires used by the FIFO, MAC, and memwrapper
 
@@ -79,7 +76,7 @@ module minilab1(
         .rst_n(rst_n)
         .En()
         .Clr(),
-        .Ain(),
+        .Ain(Ain),
         .Bin(),
         .Cout(),
         .datain(),
@@ -101,9 +98,9 @@ module minilab1(
         .address({28{1'b0}}, addr),         // 32-bit address for 8 rows going to come from SM
         .read(mem_read),                    // Read request
         // Outputs
-        .readdata(readdata),                 // 64-bit read data (one row)
+        .readdata(readdata),                 // 64-bit read data (one row)  
         .readdatavalid(data_valid),          // Data valid signal
-        .waitrequest(mem_wait)               // Busy signal to indicate logic is processing
+        .waitrequest(mem_wait)               // Busy signal to indicate logic is processing ** DONT USE **
     );  
 
     //=======================================================
@@ -117,19 +114,20 @@ module minilab1(
     integer j;
 
     // State machine
-    always @(posedge CLOCK_50, negedge rst_n) begin
+    always_comb begin
         mem_read = 1'b0;
-        mem_wait = 1'b0;
         readdata = {64{0}};
 
+        next_state = state;
+
         if (~rst_n) begin 
-            state <= FILL;
-            result <= {(DATA_WIDTH*3){1'b0}};
+            next_state = FILL;
+            result = {(DATA_WIDTH*3){1'b0}};
             // clear empty and full references for all FIFO units
-            empty <= {DATA_WIDTH{1'b1}}; 
-            full <= {DATA_WIDTH{1'b0}}; 
+            empty = {DATA_WIDTH{1'b1}}; 
+            full = {DATA_WIDTH{1'b0}}; 
             for (j=0; j<8; j++) begin 
-                datain[j] <= {DATA_WIDTH{1'b0}};
+                datain[j] = {DATA_WIDTH{1'b0}};
             end 
         end
         else begin
@@ -137,26 +135,40 @@ module minilab1(
                 FILLB: begin 
                     addr = 4'h0;
                     mem_read = 1'b1;
-                    if (!mem_wait) begin
-                        
-                        state <= FILLA;
+                    if (!data_valid) begin
+                        for (int i = 0; i < 8; i = i + 1) begin
+                            Bin[i] = readdata[(8*i) +: 8];  
+                        end
+                        addr += 4'h1;
+                        next_state = FILLA;
                     end 
+                    //else next_state = FILLB;
                 end
                 
-                // TODO: find a way to inc addr such that we dont need a seperate state
                 FILLA: begin 
                     mem_read = 1'b1;
-                    if (full[7] & !mem_wait) begin
-                        state <= EXEC;
+                    if (full[7] & !data_valid) begin
+                        next_state = EXEC;
                     end
                     else begin 
-                        //TODO: mutiple calls to mem module starting at addr 1, ending at addr 8
+                        next_state = WAIT;
                     end
                 end
 
+                WAIT: begin 
+                    if (data_valid) begin
+                        for (int c = 0; c < 8; c++) begin
+                            Ain[addr-1][c] = readdata[(8*c) +: 8];  
+                        end  
+                        addr += 1
+                        next_state = FILLA;
+                    end
+                end
+                    //else next_state = WAIT;
+
                 EXEC: begin 
                     if (empty[7]) 
-                        state <= DONE;
+                        next_state = DONE;
                 end
 
                 DONE: begin 
@@ -173,4 +185,12 @@ module minilab1(
         // TODO: Perform MAC on data from FIFO
         end
     end
+
+    always_ff @(posedge clk, negedge rst_n) begin 
+        if (!rst_n) state = FILLB;
+        else begin
+            state = next_state;
+        end
+    end
+
 endmodule
