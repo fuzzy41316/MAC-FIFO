@@ -62,6 +62,13 @@ module minilab1(
     wire [7:0] full, empty;        //will read in a left to right (always) can check the whole thing is full/empty using end bits
     wire [7:0] dataout [0:DATA_WIDTH-1];
 
+    // Memory input/output signals to be driven from SM
+    wire mem_wait, data_valid, mem_read;
+    wire [3:0]addr;                 //addr only goes 0 to 8 -> can represent in 4 bits
+    
+    //TODO: need to parse this output from mem file into respective FIFOS. controlled from SM
+    // otherwise, i have no clue how to do this.
+    wire [63:0] readdata;
     // TODO: add declarations for wires used by the FIFO, MAC, and memwrapper
 
     //=======================================================
@@ -86,18 +93,18 @@ module minilab1(
         .dataout());
 
     // TODO: instantiate the memory module, and store values into FIFO in SM below
-    // TODO: where do we give the memory module the file to read?
+    // TODO: where do we give the memory module the file to read? -> happens through rom.v file
     mem_wrapper memory(
         // Inputs
         .clk(CLOCK_50),
         .reset_n(rst_n),
-        .address(),         // 32-bit address for 8 rows
-        .read(),            // Read request
+        .address({28{1'b0}}, addr),         // 32-bit address for 8 rows going to come from SM
+        .read(mem_read),                    // Read request
         // Outputs
-        .readdata(),        // 64-bit read data (one row)
-        .readdatavalid(),   // Data valid signal
-        .waitrequest()      // Busy signal to indicate logic is processing
-    );
+        .readdata(readdata),                 // 64-bit read data (one row)
+        .readdatavalid(data_valid),          // Data valid signal
+        .waitrequest(mem_wait)               // Busy signal to indicate logic is processing
+    );  
 
     //=======================================================
     //  Structural coding
@@ -124,9 +131,11 @@ module minilab1(
         else begin
             case(state) 
                 FILLB: begin 
+                    addr = 4'h0;
                     //TODO: single call to mem module with addr 0
                 end
                 
+                // TODO: find a way to inc addr such that we dont need a seperate state
                 FILLA: begin 
                     if (full[7]) begin
                         state <= EXEC;
