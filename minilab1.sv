@@ -118,6 +118,10 @@ module minilab1(
 
     // State machine
     always @(posedge CLOCK_50, negedge rst_n) begin
+        mem_read = 1'b0;
+        mem_wait = 1'b0;
+        readdata = {64{0}};
+
         if (~rst_n) begin 
             state <= FILL;
             result <= {(DATA_WIDTH*3){1'b0}};
@@ -132,12 +136,17 @@ module minilab1(
             case(state) 
                 FILLB: begin 
                     addr = 4'h0;
-                    //TODO: single call to mem module with addr 0
+                    mem_read = 1'b1;
+                    if (!mem_wait) begin
+                        ;
+                        state <= FILLA;
+                    end 
                 end
                 
                 // TODO: find a way to inc addr such that we dont need a seperate state
                 FILLA: begin 
-                    if (full[7]) begin
+                    mem_read = 1'b1;
+                    if (full[7] & !mem_wait) begin
                         state <= EXEC;
                     end
                     else begin 
