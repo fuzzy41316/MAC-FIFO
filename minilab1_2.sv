@@ -45,10 +45,13 @@ module minilab1_2(
 
     /* A ARRAY */
     logic [7:0] dataoutA [7:0];                 // Row of the 2D A array stored into the FIFO
-    logic rdenA [7:0], wrenA [7:0], emptyA [7:0], fullA [7:0];
+    //logic rdenA [7:0], wrenA [7:0], emptyA [7:0], fullA [7:0];
     logic allFull;
-    assign allFull = fullA[0] & fullA[1] & fullA[2] & fullA[3] 
-        & fullA[4] & fullA[5] & fullA[6] & fullA[7];
+    //assign allFull = fullA[0] & fullA[1] & fullA[2] & fullA[3] 
+    //    & fullA[4] & fullA[5] & fullA[6] & fullA[7];
+
+    logic [7:0] rdenA, wrenA, emptyA, fullA;
+    assign allFull = &fullA;
 
 
     /* B ARRAY */
@@ -71,21 +74,20 @@ module minilab1_2(
     // Generate FIFOs for the 8x8 A input
     genvar k;
     generate
-        for (k=0; k < 7; k++) 
-        begin
-            fifo A_fifo(
-                // Inputs
-                .data(datain),
-                .rdclk(CLOCK_50),
-                .rdreq(rdenA[k]),
-                .wrclk(CLOCK_50),
-                .wrreq(wrenA[k]),
-                // Outputs
-                .q(dataoutA[k]),
-                .rdempty(emptyA[k]),
-                .wrfull(fullA[k])
-            );
-        end
+    for (k = 0; k < 8; k++)  
+    begin
+        fifo A_fifo(
+            .data(datain),
+            .rdclk(CLOCK_50),
+            .rdreq(rdenA[k]),
+            .wrclk(CLOCK_50),
+            .wrreq(wrenA[k]),
+            // Outputs
+            .q(dataoutA[k]),
+            .rdempty(emptyA[k]),
+            .wrfull(fullA[k])
+        );
+    end
     endgenerate
 
     generate
@@ -129,18 +131,16 @@ module minilab1_2(
             column <= '0;
         else if (nextrow)
             column <= '0;
-        else if (fullB) 
-            column <= '0;
         else if (reading) 
             column <= column + 1;
+        else if (fullB) 
+            column <= '0;
     end
 
     // Counter for address, to increment rows
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
         if (!rst_n)
             address <= '0;
-        else if (fullB)
-            address <= 1; // Start at row 1 when filling A for the first time
         else if (nextrow)
             address <= address + 1;
     end
@@ -159,6 +159,10 @@ module minilab1_2(
             // Reset the FIFOs, start filling B first
             datain = '0;
             next_state = READ;
+            wrenB = 0;
+            rdenB = 0;
+            wrenA = '0;
+            rdenA = '0;
         end
 
         case(state)
@@ -183,24 +187,25 @@ module minilab1_2(
                     datain = readdata_byte[column];
                 end
                 else
+                begin
                     next_state = READ;
+                    nextrow = 1;
+                end
             end
             FILLA:
             begin
                 if(!allFull)
                 begin
-                    // tell counter to increment address to next row
-                    if (column == 8) 
+                    reading = 1;
+                    wrenA |= (1 << (address-1));
+                    datain = readdata_byte[column];
+
+                    // Read the next row
+                    if (column == 7)
                     begin
-                        nextrow = 1;
-                        wrenA[address-1] = 0;
+                        nextrow = 1; 
+                        wrenA |= (1 << (address-1));
                         next_state = READ;
-                    end
-                    else
-                    begin
-                        reading = 1;
-                        wrenA[address-1] = 1;
-                        datain = readdata_byte[column];
                     end
                 end
             end

@@ -1522,3 +1522,2035 @@ restart -f
 #    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
 run -all
 # Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+add wave -position insertpoint sim:/minilab_test/minilab1/*
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1765  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3845  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5925  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8005  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10085  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12165  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14245  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16325  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18405  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20485  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22565  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24645  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 25035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26725  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 27115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28805  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30885  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32965  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35045  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37125  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39205  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41285  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43365  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45445  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47525  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49605  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51685  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 52075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53765  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 53895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 54025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 54155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55845  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 55975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 56105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 56235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 57535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 57535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 57665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 57795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 57925  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 58055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 58185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 58315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 59615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 59615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 59745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 59875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 60005  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 60135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 60265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 60395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 61695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 61695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 61825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 61955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 62085  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 62215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 62345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 62475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 63775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 63775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 63905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 64035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 64165  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 64295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 64425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 64555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 65855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 65855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 65985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 66115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 66245  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 66375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 66505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 66635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 67935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 67935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68325  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 68715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70405  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 70795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72485  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 72875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74565  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 74955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76645  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 76905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 77035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78725  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 78985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 79115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80805  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 80935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 81065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 81195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 82495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 82495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 82625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 82755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 82885  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 83015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 83145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 83275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 84575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 84575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 84705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 84835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 84965  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 85095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 85225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 85355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 86655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 86655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 86785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 86915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 87045  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 87175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 87305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 87435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 88735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 88735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 88865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 88995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 89125  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 89255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 89385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 89515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 90815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 90815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 90945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 91075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 91205  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 91335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 91465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 91595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 92895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 92895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93285  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 93675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 94975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 94975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95365  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 95755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97445  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 97835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99525  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 99915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101605  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 101995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103685  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 103945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 104075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105765  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 105895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 106025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 106155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107845  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 107975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 108105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 108235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 109535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 109535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 109665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 109795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 109925  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 110055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 110185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 110315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 111615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 111615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 111745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 111875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 112005  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 112135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 112265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 112395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 113695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 113695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 113825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 113955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 114085  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 114215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 114345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 114475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 115775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 115775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 115905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 116035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 116165  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 116295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 116425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 116555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 117855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 117855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 117985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 118115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 118245  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 118375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 118505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 118635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 119935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 119935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120325  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 120715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 122015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 122015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 122145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1765  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3845  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5925  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8005  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10085  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12165  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14245  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16325  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18405  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20485  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22565  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24645  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 25035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26725  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 27115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28805  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30885  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32965  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35045  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37125  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39205  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41285  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43365  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45445  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1765  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 1895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3845  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 3975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 4235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 5925  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 6315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 7875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8005  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 8395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 9955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10085  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 10475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 11905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12165  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 12555  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 13985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14245  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14375  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14505  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 14635  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 15935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16325  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16455  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16585  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 16715  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18405  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18535  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18665  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 18795  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20485  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20615  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20745  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 20875  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22565  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22695  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 22955  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24645  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24775  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 24905  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 25035  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26725  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26855  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 26985  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 27115  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28805  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 28935  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29065  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 29195  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 30885  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31015  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31145  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 31275  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 32965  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33095  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33225  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 33355  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 34915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35045  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35175  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35305  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 35435  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 36995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37125  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37255  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37385  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 37515  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38815  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 38945  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39075  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39205  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39335  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39465  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 39595  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 40895  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41025  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41155  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41285  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41415  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 41675  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 42975  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43105  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43235  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43365  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43495  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43625  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 43755  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45055  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45185  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45315  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45445  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45575  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45705  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 45835  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47135  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47265  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47395  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47525  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47655  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47785  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 47915  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49215  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49345  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49475  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49605  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49735  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49865  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 49995  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51295  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 51425  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+add wave -position insertpoint sim:/minilab_test/minilab1/*
+# Compile of minilab1_2.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1_2(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1_2(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+run -all
+# Resetting the minilab1 DUT
