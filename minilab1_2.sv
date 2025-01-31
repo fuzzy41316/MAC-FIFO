@@ -204,7 +204,7 @@ module minilab1_2(
                     if (column == 7)
                     begin
                         nextrow = 1; 
-                        wrenA |= (1 << (address-1));
+                        wrenA |= (1 << (address-1));    
                         next_state = READ;
                     end
                 end
