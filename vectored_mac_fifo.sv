@@ -1,58 +1,52 @@
-module vectored_mac_fifo #
-(
-    parameter DATA_WIDTH = 8    // DATA_WIDTH of the vector instantiations (8 entries of 8 bits, 16 entries, etc.)
-)
-(   
-    // SHARED
-    input clk,
-    // MAC
-    input rst_n,
-    input [DATA_WIDTH-1:0] En,                              // En turns on MAC (when FIFO is full)
-    input Clr,                                              // Asynchronous signal to clear all MAC data
-    input [7:0] Ain [DATA_WIDTH-1:0] [DATA_WIDTH-1:0],      // Ain is a vectored entry with A entries of size 8 bits as an input to the MAC provided by a FIFO
-    input [7:0] Bin [DATA_WIDTH-1:0],                       // Bin is a vectored entry with B entries of size 8 bits as an input to the MAC provided by a FIFO
-    input [23:0] Cout [DATA_WIDTH-1:0],                      // Cout is a vectored entry with C entries of size 24 bits as an output from the MAC
-    // FIFO
-    input [7:0] datain [DATA_WIDTH-1:0],                    // Memory outputs 64-bit data for each FIFO to store as 8 entries of 8-bits
-    input rden,                                             // Read enable for FIFO to pop data
-    input wren,                                             // Write enable for FIFO to push data
-    input [DATA_WIDTH-1:0] full,                            // Asserted when FIFO is empty
-    input [DATA_WIDTH-1:0] empty,                           // Asserted when FIFO is full
-    output [7:0] dataout [DATA_WIDTH-1:0]                   // Output of FIFO
-);
+module vectored_mac_fifo
+    // Internal wires
+    /* SHARED */
+    logic [7:0] datain;
+    logic clk, rst_n, clr;
+
+    /* A ARRAY */
+    logic [7:0] dataoutA [7:0];      // Row of the 2D A array stored into the FIFO
+    logic [7:0] rdenA, wrenA, emptyA, fullA;    // Control signals for each row inserted into 8 FIFOs
+
+    /* B ARRAY */
+    logic [7:0] dataoutB [7:0];      // B array 
+    logic rdenB, wrenB, emptyB, fullB;          // Control signals for the B FIFO
+    logic [7:0] emptyB, fullB;
+
+
+    // Generate FIFOs for the 8x8 A input
     genvar k;
     generate
-        for (k=0; k < DATA_WIDTH-1; k++) 
+        for (k=0; k < 7; k++) 
         begin
-            fifo fifo_inst(
+            fifo A_fifo(
                 // Inputs
-                .data(Ain[k]),
+                .data(datain),
                 .rdclk(clk),
-                .rdreq(rden),
+                .rdreq(rdenA[k]),
                 .wrclk(clk),
-                .wrreq(wren_a),
+                .wrreq(wrenA[k]),
                 // Outputs
-                .q(dataout[k]),
-                .rdempty(empty[k]),
-                .wrfull(full[k])
+                .q(dataoutA[k]),
+                .rdempty(emptyA[k]),
+                .wrfull(fullA[k])
             );
         end
     endgenerate
 
-    // TODO: 
     generate
         begin
-            fifo fifo_inst(
+            fifo B_fifo(
                 // Inputs
                 .data(Bin),
                 .rdclk(clk),
-                .rdreq(rden),
+                .rdreq(rdenB),
                 .wrclk(clk),
-                .wrreq(wren_b),
+                .wrreq(wrenB),
                 // Outputs
-                .q(dataout[k]),
-                .rdempty(empty[k]),
-                .wrfull(full[k])
+                .q(dataoutB),
+                .rdempty(emptyB),
+                .wrfull(fullB)
             );
         end
     endgenerate
@@ -60,9 +54,9 @@ module vectored_mac_fifo #
     genvar i;
     genvar j;
     generate
-        for (i=0; i < DATA_WIDTH-1; i++)        // Row
+        for (i=0; i < 7; i++)        // Row
         begin
-            for (j=0; j < DATA_WIDTH-1; j++)    // Col
+            for (j=0; j < 7; j++)    // Col
             begin
                 mac mac_inst(
                     // Inputs
