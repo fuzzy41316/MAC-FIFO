@@ -26,23 +26,34 @@ module minilab1_2(
 
     // Internal wires
     /* SHARED */
-    logic [7:0] datain 
-    logic clk, rst_n, clr;
+    logic [7:0] datain;
+    logic rst_n, clr;
 
     /* MEMORY */
-    logic [31:0] address;
+    reg [31:0] address;
     logic [63:0] readdata;
     logic readdatavalid, read;
+    logic [7:0] readdata_byte [7:0];
+    assign readdata_byte[0] = readdata[63:56];
+    assign readdata_byte[1] = readdata[55:48];
+    assign readdata_byte[2] = readdata[47:40];
+    assign readdata_byte[3] = readdata[39:32];
+    assign readdata_byte[4] = readdata[31:24];
+    assign readdata_byte[5] = readdata[23:16];
+    assign readdata_byte[6] = readdata[15:8];
+    assign readdata_byte[7] = readdata[7:0];
 
     /* A ARRAY */
     logic [7:0] dataoutA [7:0];                 // Row of the 2D A array stored into the FIFO
-    logic [7:0] rdenA, wrenA, emptyA, fullA;    // Control signals for each row inserted into 8 FIFOs
+    logic rdenA [7:0], wrenA [7:0], emptyA [7:0], fullA [7:0];
+    logic allFull;
+    assign allFull = fullA[0] & fullA[1] & fullA[2] & fullA[3] 
+        & fullA[4] & fullA[5] & fullA[6] & fullA[7];
+
 
     /* B ARRAY */
-    logic [7:0] dataoutB;                 // B array 
+    logic [7:0] dataoutB;                       // B array 
     logic rdenB, wrenB, emptyB, fullB;          // Control signals for the B FIFO
-    logic emptyB, fullB;
-
 
     // Instantiate the memory module
     mem_wrapper memory(
@@ -65,9 +76,9 @@ module minilab1_2(
             fifo A_fifo(
                 // Inputs
                 .data(datain),
-                .rdclk(clk),
+                .rdclk(CLOCK_50),
                 .rdreq(rdenA[k]),
-                .wrclk(clk),
+                .wrclk(CLOCK_50),
                 .wrreq(wrenA[k]),
                 // Outputs
                 .q(dataoutA[k]),
@@ -81,10 +92,10 @@ module minilab1_2(
         begin
             fifo B_fifo(
                 // Inputs
-                .data(Bin),
-                .rdclk(clk),
+                .data(datain),
+                .rdclk(CLOCK_50),
                 .rdreq(rdenB),
-                .wrclk(clk),
+                .wrclk(CLOCK_50),
                 .wrreq(wrenB),
                 // Outputs
                 .q(dataoutB),
@@ -95,93 +106,110 @@ module minilab1_2(
     endgenerate
 
     // State and next state logic
-    typedef enum reg [1:0] {FILLA, FILLB, WAIT, DONE} state_t;
+    typedef enum reg [2:0] {READ, FILLA, FILLB, WAIT, DONE} state_t;
     state_t state, next_state;
 
-    always_ff @(posedge clk, negedge rst_n) 
+    always_ff @(posedge CLOCK_50, negedge rst_n) 
     begin
         if (!rst_n)
-            state <= FILLA;
+            state <= READ;
         else 
             state <= next_state;
     end
-
+    
     // Structural coding
     assign rst_n = KEY[0];
+    logic reading;  // var to tell the column to start incrementing
+    logic nextrow;  // For filling A
 
-    logic [3:0] column;
-    logic [3:0] row;
+    // Counter for incrementing which byte-size column we're writing to the FIFO
+    reg [2:0] column;
+    always_ff@(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n) 
+            column <= '0;
+        else if (nextrow)
+            column <= '0;
+        else if (fullB) 
+            column <= '0;
+        else if (reading) 
+            column <= column + 1;
+    end
+
+    // Counter for address, to increment rows
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n)
+            address <= '0;
+        else if (fullB)
+            address <= 1; // Start at row 1 when filling A for the first time
+        else if (nextrow)
+            address <= address + 1;
+    end
+
     // State machine
     always_comb
     begin
         // Defaults
         read = '0;
         next_state = state;
+        reading = 0;
+        nextrow = 0;
 
         if (!rst_n)
         begin
             // Reset the FIFOs, start filling B first
-            next_state = FILLB;
-            emptyA = '0;
-            emptyB = '0;
-            fullA = '0;
-            fullB = '0;
             datain = '0;
-            addr '0;
-            column = '0;
-            row = 1'd1;
+            next_state = READ;
         end
-        else
-        begin
-            case(state)
-                READ:
-                begin
-                    read = 1'b1;
 
-                    // Need to check for data_valid signal from memory before filling the FIFO
-                    if (!data_valid & !fullB)           // Fill B first
-                        next_state = FILLB;
-                    else if (!data_valid & !(&fullA))   // Fill A
-                        next_state = FILLA;
-                end
-                FILLB:
+        case(state)
+            READ:
+            begin
+                read = 1'b1;
+                // Need to check for data_valid signal from memory before filling the FIFO
+                if (readdatavalid & !fullB)             // Fill B first
+                    next_state = FILLB;
+                else if (readdatavalid & !(allFull))    // Fill A second
+                    next_state = FILLA;
+                else if (fullB & allFull)               // Can start MAC
+                    next_state = DONE;
+            end
+            FILLB:
+            begin
+                // As long as B FIFO is not full, keep filling
+                if (!fullB)
                 begin
-                    // As long as B FIFO is not full, keep filling
-                    if (!fullB)
+                    reading = 1;
+                    wrenB = 1'b1;
+                    datain = readdata_byte[column];
+                end
+                else
+                    next_state = READ;
+            end
+            FILLA:
+            begin
+                if(!allFull)
+                begin
+                    // tell counter to increment address to next row
+                    if (column == 8) 
                     begin
-                        datain = readdata[(8*column) +: 8];
-                        column++; 
-                        wrenB = 1'b1;
-                    end
-                    else
-                    begin
-                        column = '0;
-                        wrenB = 1'b0;
+                        nextrow = 1;
+                        wrenA[address-1] = 0;
                         next_state = READ;
                     end
-                end
-                FILLA:
-                begin
-                    if (!fullA[row-1])
-                    begin
-                        datain = readdata[(8*column) +: 8];
-                        column++;
-                        wrenA[row-1] = 1'b1;
-                    end
-                    else if (fullA[row-1] & !(row & 4'b1001))
-                    begin
-                        row++
-                        next_state = read;
-                    end
                     else
-                        next_state = DONE;
+                    begin
+                        reading = 1;
+                        wrenA[address-1] = 1;
+                        datain = readdata_byte[column];
+                    end
                 end
-                DONE:
-                begin
-                    
-                end
-            endcase
-        end
+            end
+            // DONE STATE
+            default:
+            begin
+                // TODO: future execution stage when using the MAC unit
 
+            end
+        endcase
     end
 endmodule
