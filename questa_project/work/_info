@@ -104,6 +104,7 @@ o-quiet -auto_acc_if_foreign -work work -L C:/intelFPGA_lite/23.1std/questa_fse/
 R6
 n@_opt1
 R7
+R3
 vfifo
 2I:/ece554/Minilab1/fifo.v
 Z8 !s110 1738360065
@@ -226,23 +227,23 @@ R6
 vminilab1_2
 2I:/ece554/Minilab1/minilab1_2.sv
 R16
-!s110 1738367892
+!s110 1738368678
 !i10b 1
-!s100 :_`TB>46RmMTKHj07?c?S1
-IL]?j2ab66Fl>@kECWY=8]1
+!s100 2O1[SkQ5mjW2XcV6AhJEC2
+I5jTdlkHA8?UfARMF?]=m53
 S1
 R9
-w1738367885
+w1738368675
 8I:/ece554/Minilab1/minilab1_2.sv
 FI:/ece554/Minilab1/minilab1_2.sv
-!i122 74
-L0 1 220
+!i122 75
+L0 1 238
 R10
 R11
 r1
 !s85 0
 31
-!s108 1738367892.000000
+!s108 1738368677.000000
 !s107 I:/ece554/Minilab1/minilab1_2.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/Minilab1/minilab1_2.sv|
 !i113 0

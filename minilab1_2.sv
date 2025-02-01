@@ -27,7 +27,7 @@ module minilab1_2(
     // Internal wires
     /* SHARED */
     logic [7:0] datain;
-    logic rst_n, clr;
+    logic rst_n, Clr;
 
     /* MEMORY */
     reg [31:0] address;
@@ -45,18 +45,31 @@ module minilab1_2(
 
     /* A ARRAY */
     logic [7:0] dataoutA [7:0];                 // Row of the 2D A array stored into the FIFO
-    //logic rdenA [7:0], wrenA [7:0], emptyA [7:0], fullA [7:0];
     logic allFull;
-    //assign allFull = fullA[0] & fullA[1] & fullA[2] & fullA[3] 
-    //    & fullA[4] & fullA[5] & fullA[6] & fullA[7];
-
     logic [7:0] rdenA, wrenA, emptyA, fullA;
     assign allFull = &fullA;
-
 
     /* B ARRAY */
     logic [7:0] dataoutB;                       // B array 
     logic rdenB, wrenB, emptyB, fullB;          // Control signals for the B FIFO
+
+    /* MAC */
+    logic [7:0] Ain;
+    logic [7:0] Bin;
+    logic [23:0] Cout [7:0];
+    logic mac_count;    // TODO: increment the mac_count depending on the step you're on
+                        // i.e., first Cout, then second Cout, then third Cout.
+    
+    // Instantiate the MAC module
+    mac mac(
+        .clk(CLOCK_50),
+        .rst_n(rst_n),
+        .En(|rdenA & rdenB),    //TODO: Enable MAC if reading from B and any A?
+        .Clr(Clr),
+        .Ain(Ain),
+        .Bin(Bin),
+        .Cout(Cout[mac_count]   //TODO: look here
+        ));
 
     // Instantiate the memory module
     mem_wrapper memory(
@@ -108,7 +121,7 @@ module minilab1_2(
     endgenerate
 
     // State and next state logic
-    typedef enum reg [2:0] {READ, FILLA, FILLB, WAIT, DONE} state_t;
+    typedef enum reg [2:0] {READ, FILLA, FILLB, EXEC, DONE} state_t;
     state_t state, next_state;
 
     always_ff @(posedge CLOCK_50, negedge rst_n) 
@@ -175,7 +188,7 @@ module minilab1_2(
                 else if (readdatavalid & !(allFull))    // Fill A second
                     next_state = FILLA;
                 else if (fullB & allFull)               // Can start MAC
-                    next_state = DONE;
+                    next_state = EXEC;
             end
             FILLB:
             begin
@@ -209,10 +222,15 @@ module minilab1_2(
                     end
                 end
             end
+            EXEC:
+            begin
+                // TODO: 
+
+            end
             // DONE STATE
             default:
             begin
-                // TODO: future execution stage when using the MAC unit
+                // TODO
 
             end
         endcase

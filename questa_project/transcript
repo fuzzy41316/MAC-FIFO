@@ -3554,3 +3554,7 @@ restart -f
 #    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
 run -all
 # Resetting the minilab1 DUT
+# Compile of minilab1_2.sv failed with 3 errors.
+# Compile of minilab1_2.sv failed with 1 errors.
+# Compile of minilab1_2.sv failed with 1 errors.
+# Compile of minilab1_2.sv was successful.
