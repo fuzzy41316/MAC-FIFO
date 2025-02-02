@@ -222,17 +222,23 @@ module minilab1_2(
                     end
                 end
             end
+            
             EXEC:
             begin
                 // TODO: 
-
+                rdenA = '1;
+                rdenB = '1;
+                
             end
-            // DONE STATE
+            
+            DONE: 
+            begin 
+                // TODO: 
+            end
+            
             default:
-            begin
-                // TODO
+            begin end 
 
-            end
         endcase
     end
 endmodule
