@@ -61,14 +61,15 @@ module minilab1_2(
                         // i.e., first Cout, then second Cout, then third Cout.
     
     // Instantiate the MAC module
+    //TODO: tie inputs to mac directly to outputs from FIFO, control signals should come from SM
     mac mac(
         .clk(CLOCK_50),
         .rst_n(rst_n),
         .En(|rdenA & rdenB),    //TODO: Enable MAC if reading from B and any A?
         .Clr(Clr),
-        .Ain(Ain),
-        .Bin(Bin),
-        .Cout(Cout[mac_count]   //TODO: look here
+        .Ain(dataoutA[column]), //TODO:
+        .Bin(dataoutB),         //TODO:
+        .Cout(Cout[column]      //TODO: look here
         ));
 
     // Instantiate the memory module
@@ -150,6 +151,27 @@ module minilab1_2(
             column <= '0;
     end
 
+    // Counter for incrementing which byte-size column we're reading from the FIFO
+    reg [2:0] row;
+    always_ff@(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n) 
+            row <= '0;
+        else if (row_rst)
+            row <= '0;
+        else if (mac_exec) 
+            row <= row + 1;
+        else if (fullB) 
+            row <= '0;
+    end
+
+    // ff to reset controlling signals on READ so we can reuse FILLB for mac
+    //TODO: might have error with driving in two places in EXEC stage of SM
+    reg mac_exec;
+    always_ff@(posedge CLOCK_50, negedge rst_n) begin 
+        if (!rst_n)
+            mac_exec <= '0;
+    end
+
     // Counter for address, to increment rows
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
         if (!rst_n)
@@ -182,25 +204,28 @@ module minilab1_2(
             READ:
             begin
                 read = 1'b1;
-                // Need to check for data_valid signal from memory before filling the FIFO
-                if (readdatavalid & !fullB)             // Fill B first
+                // Need to check for data_valid signal from memory before filling the FIFO               
+                else if (readdatavalid & !fullB)        // Fill B first
                     next_state = FILLB;
                 else if (readdatavalid & !(allFull))    // Fill A second
                     next_state = FILLA;
-                else if (fullB & allFull)               // Can start MAC
+                else if (fullB & allFull) begin         // Can start MAC
+                    row_rst = '1;                       // assertion to reset the row counter after 
                     next_state = EXEC;
+                end
             end
+
             FILLB:
             begin
                 // As long as B FIFO is not full, keep filling
-                if (!fullB)
-                begin
+                if (!fullB) begin
                     reading = 1;
                     wrenB = 1'b1;
                     datain = readdata_byte[column];
                 end
-                else
-                begin
+                else if (mac_exec) 
+                    next_state = EXEC;   
+                else begin
                     next_state = READ;
                     nextrow = 1;
                 end
@@ -225,10 +250,27 @@ module minilab1_2(
             
             EXEC:
             begin
-                // TODO: 
+                mac_exec = '1;
+                // assert read signals;
                 rdenA = '1;
                 rdenB = '1;
-                
+
+                /*  NOTE: this is me exploiting the logic we already have here. will need other logic to support 
+                    the interface between mac completing one entry in A (the 8 cycles it will take to read) and 
+                    incrementing the counter to indicate which column we need to read from
+
+                    by the time we get here, the logic for filling A is no longer needed. I want to reuse it to 
+                    count where we are within each colcumn for reading. 
+                */
+
+                // logic to put the output of B FIFO into a 64 bit array so fill B can readd it to the FIFO
+                readdata = readdata << 8;
+                readdata |= dataoutB;
+                if (&row) begin   //row == 7
+                    
+                    next_state = FILLB;
+                end
+
             end
             
             DONE: 
