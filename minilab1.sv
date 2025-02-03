@@ -1,5 +1,4 @@
 module minilab1(
-
 	//////////// CLOCK //////////
 	input 		          		CLOCK2_50,
 	input 		          		CLOCK3_50,
@@ -23,174 +22,282 @@ module minilab1(
 	//////////// SW //////////
 	input 		     [9:0]		SW
 );
-    localparam DATA_WIDTH = 8;
+    
 
-    typdef enum reg[2:0] {FILLA, FILLB, WAIT, EXEC, DONE} state_t;
+    // Internal wires
+    /* SHARED */
+    logic [7:0] datain;
+    logic rst_n, Clr, aclr;
+
+    /* MEMORY */
+    reg [31:0] address;
+    logic [63:0] readdata;
+    logic readdatavalid, read, waitrequest;
+    logic [7:0] readdata_byte [7:0];
+    assign readdata_byte[0] = readdata[63:56];
+    assign readdata_byte[1] = readdata[55:48];
+    assign readdata_byte[2] = readdata[47:40];
+    assign readdata_byte[3] = readdata[39:32];
+    assign readdata_byte[4] = readdata[31:24];
+    assign readdata_byte[5] = readdata[23:16];
+    assign readdata_byte[6] = readdata[15:8];
+    assign readdata_byte[7] = readdata[7:0];
+
+    /* A ARRAY */
+    logic [7:0] dataoutA [7:0];                 // Row of the 2D A array stored into the FIFO
+    logic allFull;
+    logic [7:0] rdenA, wrenA, emptyA, fullA;
+    assign allFull = &fullA;
+
+    /* B ARRAY */
+    logic [7:0] dataoutB;                       // B array 
+    logic rdenB, wrenB, emptyB, fullB;          // Control signals for the B FIFO
+
+    /* MAC */
+    logic [7:0] Ain;
+    logic [7:0] Bin;
+    logic [23:0] Cout;
+    reg [23:0] cout_reg [7:0];
+    reg [2:0] mac_count;        // TODO: increment the mac_count depending on the step you're on
+                                // i.e., first Cout, then second Cout, then third Cout.
+    
+    // Instantiate the MAC module
+    mac mac(
+        .clk(CLOCK_50),
+        .rst_n(rst_n),
+        .En(|rdenA & rdenB),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
+        .Clr(Clr),
+        .Ain(Ain),
+        .Bin(Bin),
+        .Cout(Cout));
+
+    // Instantiate the memory module
+    mem_wrapper memory(
+        .clk(CLOCK_50),    
+        .reset_n(rst_n),
+        .address(address),              // 32-bit address for 8 rows
+        .read(read),                    // Read request
+        // Outputs
+        .readdata(readdata),            // 64-bit read data (one row)
+        .readdatavalid(readdatavalid),  // Data valid signal
+        .waitrequest(waitrequest)       // Busy signal to indicate logic is processing
+    );
+
+
+    // Generate FIFOs for the 8x8 A input
+    genvar k;
+    generate
+    for (k = 0; k < 8; k++)  
+    begin
+        fifo A_fifo(
+            .aclr(aclr),
+            .data(datain),
+            .rdclk(CLOCK_50),
+            .rdreq(rdenA[k]),
+            .wrclk(CLOCK_50),
+            .wrreq(wrenA[k]),
+            // Outputs
+            .q(dataoutA[k]),
+            .rdempty(emptyA[k]),
+            .wrfull(fullA[k])
+        );
+    end
+    endgenerate
+
+    generate
+        begin
+            fifo B_fifo(
+                // Inputs
+                .aclr(aclr),
+                .data(datain),
+                .rdclk(CLOCK_50),
+                .rdreq(rdenB),
+                .wrclk(CLOCK_50),
+                .wrreq(wrenB),
+                // Outputs
+                .q(dataoutB),
+                .rdempty(emptyB),
+                .wrfull(fullB)
+            );
+        end
+    endgenerate
+
+    // State and next state logic
+    typedef enum reg [2:0] {READ, FILLA, FILLB, WAIT, EXEC, DONE} state_t;
     state_t state, next_state;
 
-    parameter HEX_0 = 7'b1000000;		// zero
-    parameter HEX_1 = 7'b1111001;		// one
-    parameter HEX_2 = 7'b0100100;		// two
-    parameter HEX_3 = 7'b0110000;		// three
-    parameter HEX_4 = 7'b0011001;		// four
-    parameter HEX_5 = 7'b0010010;		// five
-    parameter HEX_6 = 7'b0000010;		// six
-    parameter HEX_7 = 7'b1111000;		// seven
-    parameter HEX_8 = 7'b0000000;		// eight
-    parameter HEX_9 = 7'b0011000;		// nine
-    parameter HEX_10 = 7'b0001000;	    // ten
-    parameter HEX_11 = 7'b0000011;	    // eleven
-    parameter HEX_12 = 7'b1000110;	    // twelve
-    parameter HEX_13 = 7'b0100001;	    // thirteen
-    parameter HEX_14 = 7'b0000110;	    // fourteen
-    parameter HEX_15 = 7'b0001110;	    // fifteen
-    parameter OFF   = 7'b1111111;		// all off
-
-    //=======================================================
-    //  REG/WIRE declarations
-    //======================================================
-
-    reg [7:0] datain [0:DATA_WIDTH-1];
-    reg [23:0] result;
-    wire rst_n;
-    wire rden, wren;
-    wire [7:0] full, empty;        //will read in a left to right (always) can check the whole thing is full/empty using end bits
-    wire [7:0] dataout [0:DATA_WIDTH-1];
-
-    // Memory input/output signals to be driven from SM
-    wire mem_wait, data_valid, mem_read;
-    wire [3:0]addr;                 //addr only goes 0 to 8 -> can represent in 4 bits
-    wire [63:0] readdata;
-
-    wire [7:0] Bin [DATA_WIDTH-1:0];
-
-    // TODO: add declarations for wires used by the FIFO, MAC, and memwrapper
-
-    //=======================================================
-    //  Module instantiation
-    //=======================================================
-
-    vectored_mac_fifo vectored(
-        // Inputs
-        .clk(CLOCK_50)
-        .rst_n(rst_n)
-        .En()
-        .Clr(),
-        .Ain(Ain),
-        .Bin(),
-        .Cout(),
-        .datain(),
-        .rden(rden),
-        .wren(wren),
-        .full(full),
-        .empty(empty),
-        // Outputs
-        .dataout(),
-        .EnOut(),
-        .Bout());
-
-    // TODO: instantiate the memory module, and store values into FIFO in SM below
-    // TODO: where do we give the memory module the file to read? -> happens through rom.v file
-    mem_wrapper memory(
-        // Inputs
-        .clk(CLOCK_50),
-        .reset_n(rst_n),
-        .address({28{1'b0}}, addr),         // 32-bit address for 8 rows going to come from SM
-        .read(mem_read),                    // Read request
-        // Outputs
-        .readdata(readdata),                 // 64-bit read data (one row)  
-        .readdatavalid(data_valid),          // Data valid signal
-        .waitrequest(mem_wait)               // Busy signal to indicate logic is processing ** DONT USE **
-    );  
-
-    //=======================================================
-    //  Structural coding
-    //=======================================================
-
+    always_ff @(posedge CLOCK_50, negedge rst_n) 
+    begin
+        if (!rst_n)
+            state <= READ;
+        else 
+            state <= next_state;
+    end
+    
+    // Structural coding
     assign rst_n = KEY[0];
-    assign wren = '((state == FILL) & rst_n);
-    assign rden = '(state == EXEC);
+    logic reading;          // Variable to tell the column to start incrementing
+    logic nextrow;          // For filling A, move a row down after A is full
+    logic next_cout;        // Used for changing what wire of the MAC output is there
 
-    integer j;
+    // Counter for incrementing which byte-size column we're writing to the FIFO
+    reg [2:0] column;
+    always_ff@(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n) 
+            column <= '0;
+        else if (nextrow)
+            column <= '0;
+        else if (reading) 
+            column <= column + 1;
+        else if (&emptyA) 
+            column <= '0;
+    end
+
+    // Counter for address, to increment rows
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n)
+            address <= '0;
+        else if (nextrow)
+            address <= address + 1;
+    end
+
+    // Counter for controlling the otput from MAC
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n)
+            mac_count <= '0;
+        else if (next_cout)
+            mac_count <= mac_count + 1;
+    end
 
     // State machine
-    always_comb begin
-        mem_read = 1'b0;
-        readdata = {64{0}};
-
+    always_comb
+    begin
+        // Defaults
+        read = '0;
         next_state = state;
+        reading = 0;
+        nextrow = 0;
+        next_cout = 0;
+        Ain = '0;
+        Bin = '0;
+        Clr = 0;
+        aclr = 0;
 
-        if (~rst_n) begin 
-            next_state = FILL;
-            result = {(DATA_WIDTH*3){1'b0}};
-            // clear empty and full references for all FIFO units
-            empty = {DATA_WIDTH{1'b1}}; 
-            full = {DATA_WIDTH{1'b0}}; 
-            for (j=0; j<8; j++) begin 
-                datain[j] = {DATA_WIDTH{1'b0}};
-            end 
+        if (!rst_n)
+        begin
+            // Reset the FIFOs, start filling B first
+            datain = '0;
+            next_state = READ;
+            wrenB = 0;
+            rdenB = 0;
+            wrenA = '0;
+            rdenA = '0;
+            for (integer i = 0; i < 8; i++) 
+                cout_reg[i] = '0;
+            aclr = 1;
         end
-        else begin
-            case(state) 
-                FILLB: begin 
-                    addr = 4'h0;
-                    mem_read = 1'b1;
-                    if (!data_valid) begin
-                        for (int i = 0; i < 8; i = i + 1) begin
-                            Bin[i] = readdata[(8*i) +: 8];  
-                        end
-                        addr += 4'h1;
-                        next_state = FILLA;
-                    end 
-                    //else next_state = FILLB;
+
+        case(state)
+            READ:
+            begin
+                read = 1'b1;
+                // Need to check for data_valid signal from memory before filling the FIFO
+                if (readdatavalid & !fullB)             // Fill B first
+                    next_state = FILLB;
+                else if (readdatavalid & !(allFull))    // Fill A second
+                    next_state = FILLA;
+                else if (allFull & fullB)               // Start MAC
+                    next_state = EXEC;
+            end
+            FILLB:
+            begin
+                // As long as B FIFO is not full, keep filling
+                if (!fullB)
+                begin
+                    reading = 1;
+                    wrenB = 1'b1;
+                    datain = readdata_byte[column];
                 end
-                
-                FILLA: begin 
-                    mem_read = 1'b1;
-                    if (full[7] & !data_valid) begin
-                        next_state = EXEC;
+                else
+                begin
+                    wrenB = 0;
+                    next_state = READ;
+                    nextrow = 1;
+                end
+            end
+            FILLA:
+            begin
+                if(!allFull & ~waitrequest)
+                begin
+                    reading = 1;
+                    wrenA |= (1 << (address-1));
+                    datain = readdata_byte[column];
+
+                    // Read the next row when current FIFO is full
+                    if (fullA[address-1])
+                    begin
+                        nextrow = 1;
+                        wrenA = '0;
+                        next_state = READ;
                     end
-                    else begin 
+                end
+                else if (allFull & ~waitrequest) begin
+                    wrenA = '0;
+                    next_state = EXEC;
+                end
+            end
+            WAIT:
+            begin
+                rdenB = 0;
+                rdenA = '0;
+                next_state = EXEC;
+            end
+            EXEC:
+            begin
+                // Need to pop 1 entry from B FIFO and 1 entry from A FIFO
+                // Need to refill the B FIFO, A.K.A propogate through
+                // Pop the FIFO, and wait till its not full to write back to it, which should be the value popped
+                
+                // When the current A FIFO is empty, move to the next cout for MAC
+                if (emptyA[mac_count]) begin
+                    cout_reg[mac_count] = Cout;     // Output from mac is a wire, need to store that output in a register
+                    Clr = 1;
+                    next_cout = 1;
+
+                    // Still need to do Bin and Ain for the MAC
+                    datain = dataoutB;
+                    reading = 1;
+                    wrenB = 1;
+                    Bin = dataoutB;
+                    Ain = dataoutA[mac_count];
+                    next_state = WAIT;
+                end
+                else begin
+                    if (fullB) begin
+                        rdenA |= (1 << (mac_count));    // Activate the ith A FIFO
+                        rdenB = 1;
+                        next_state = WAIT;
+                    end
+                    else begin
+                        datain = dataoutB;
+                        reading = 1;
+                        wrenB = 1;
+                        Bin = dataoutB;
+                        Ain = dataoutA[mac_count];      // Ain input of the MAC from the ith A FIFO
                         next_state = WAIT;
                     end
                 end
 
-                WAIT: begin 
-                    if (data_valid) begin
-                        for (int c = 0; c < 8; c++) begin
-                            Ain[addr-1][c] = readdata[(8*c) +: 8];  
-                        end  
-                        addr += 1
-                        next_state = FILLA;
-                    end
-                end
-                    //else next_state = WAIT;
+                // When the A FIFOs are exhausted, stop the MAC unit
+                if (&emptyA)
+                    next_state = DONE;
+            end
+            // DONE STATE
+            default:
+            begin
+                // TODO
 
-                EXEC: begin 
-                    if (empty[7]) 
-                        next_state = DONE;
-                end
-
-                DONE: begin 
-
-                end
-            endcase
-
-        // TODO: Input data to memory from input_mem.mif
-            // B address is 0, A address starts at 1 and goes to 8 (hex)
-
-
-        // TODO: Read data from memory into FIFO
-
-        // TODO: Perform MAC on data from FIFO
-        end
+            end
+        endcase
     end
-
-    always_ff @(posedge clk, negedge rst_n) begin 
-        if (!rst_n) state = FILLB;
-        else begin
-            state = next_state;
-        end
-    end
-
 endmodule

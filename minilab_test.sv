@@ -12,7 +12,7 @@ module minilab_test();
 	logic 		     [9:0]		SW;
 
     // Instantiate the DUT
-    minilab1_2 minilab1(
+    minilab1 minilab1(
         .CLOCK2_50(CLOCK2_50),
         .CLOCK3_50(CLOCK3_50),
         .CLOCK4_50(CLOCK4_50),
@@ -115,20 +115,22 @@ module minilab_test();
                 @(posedge minilab1.state == 1);     // Wait till we enter the FILLA state
 
                 for (int i = 0; i < 8; i++) begin
-                    for (int j = 0; j < 8; j++) begin
-                        @(posedge CLOCK_50);
-                        if (!minilab1.fullA[i]) begin // ignore when the FIFO becomes full
-                            if (!minilab1.wrenA[i]) begin
-                                $display("ERROR: write enable isn't high when data is ready at time %t", $time);
-                                repeat(1)@(posedge CLOCK_50);
-                                $stop();
+                    @(posedge |minilab1.wrenA) begin
+                        for (int j = 0; j < 8; j++) begin
+                            @(posedge CLOCK_50);
+                            if (!minilab1.fullA[i]) begin // ignore when the FIFO becomes full
+                                if (!minilab1.wrenA[i]) begin
+                                    $display("ERROR: write enable isn't high when data is ready at time %t", $time);
+                                    repeat(1)@(posedge CLOCK_50);
+                                    $stop();
+                                end
+                                if (minilab1.datain != minilab1.readdata_byte[j]) begin
+                                    $display("ERROR: expected datain from memory: %h, actual: %h for entry %x at time %t", minilab1.readdata_byte[j], minilab1.datain, j+1, $time());
+                                    repeat(1)@(posedge CLOCK_50);
+                                    $stop();
+                                end
+                                $display("  FIFO %d, entry %d filled with value: %h", i+1, j+1, minilab1.datain);
                             end
-                            if (minilab1.datain != minilab1.readdata_byte[j]) begin
-                                $display("ERROR: expected datain from memory: %h, actual: %h for entry %x at time %t", minilab1.readdata_byte[j], minilab1.datain, j+1, $time());
-                                repeat(1)@(posedge CLOCK_50);
-                                $stop();
-                            end
-                        $display("  FIFO %d, entry %d filled with value: %h", j+1, i+1, minilab1.datain);
                         end
                     end
                 end
@@ -136,6 +138,7 @@ module minilab_test();
             end
         join
         $display("TEST PASSED\n///////////////////////////////////////////////////////////////////");
+        
         ///////////////////////////////////////////////////////////////////
         // Test series #4. Popping the B FIFO & checking Cout from the MAC
         ///////////////////////////////////////////////////////////////////
@@ -144,6 +147,9 @@ module minilab_test();
         repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1; 
         
+
+
+
 
         @(minilab1.state == 5)
         begin
