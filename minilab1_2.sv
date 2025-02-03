@@ -32,7 +32,7 @@ module minilab1_2(
     /* MEMORY */
     reg [31:0] address;
     logic [63:0] readdata;
-    logic readdatavalid, read;
+    logic readdatavalid, read, waitrequest;
     logic [7:0] readdata_byte [7:0];
     assign readdata_byte[0] = readdata[63:56];
     assign readdata_byte[1] = readdata[55:48];
@@ -56,21 +56,20 @@ module minilab1_2(
     /* MAC */
     logic [7:0] Ain;
     logic [7:0] Bin;
-    logic [23:0] Cout [7:0];
-    logic mac_count;    // TODO: increment the mac_count depending on the step you're on
-                        // i.e., first Cout, then second Cout, then third Cout.
+    logic [23:0] Cout;
+    reg [23:0] cout_reg [7:0];
+    reg [2:0] mac_count;        // TODO: increment the mac_count depending on the step you're on
+                                // i.e., first Cout, then second Cout, then third Cout.
     
     // Instantiate the MAC module
-    //TODO: tie inputs to mac directly to outputs from FIFO, control signals should come from SM
     mac mac(
         .clk(CLOCK_50),
         .rst_n(rst_n),
-        .En(|rdenA & rdenB),    //TODO: Enable MAC if reading from B and any A?
+        .En(|rdenA & rdenB),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
         .Clr(Clr),
-        .Ain(dataoutA[column]), //TODO:
-        .Bin(dataoutB),         //TODO:
-        .Cout(Cout[column]      //TODO: look here
-        ));
+        .Ain(Ain),
+        .Bin(Bin),
+        .Cout(Cout));
 
     // Instantiate the memory module
     mem_wrapper memory(
@@ -81,7 +80,7 @@ module minilab1_2(
         // Outputs
         .readdata(readdata),            // 64-bit read data (one row)
         .readdatavalid(readdatavalid),  // Data valid signal
-        .waitrequest()                  // Busy signal to indicate logic is processing
+        .waitrequest(waitrequest)       // Busy signal to indicate logic is processing
     );
 
 
@@ -122,7 +121,7 @@ module minilab1_2(
     endgenerate
 
     // State and next state logic
-    typedef enum reg [2:0] {READ, FILLA, FILLB, EXEC, DONE} state_t;
+    typedef enum reg [2:0] {READ, FILLA, FILLB, WAIT, EXEC, DONE} state_t;
     state_t state, next_state;
 
     always_ff @(posedge CLOCK_50, negedge rst_n) 
@@ -135,8 +134,9 @@ module minilab1_2(
     
     // Structural coding
     assign rst_n = KEY[0];
-    logic reading;  // var to tell the column to start incrementing
-    logic nextrow;  // For filling A
+    logic reading;          // Variable to tell the column to start incrementing
+    logic nextrow;          // For filling A, move a row down after A is full
+    logic next_cout;        // Used for changing what wire of the MAC output is there
 
     // Counter for incrementing which byte-size column we're writing to the FIFO
     reg [2:0] column;
@@ -147,29 +147,8 @@ module minilab1_2(
             column <= '0;
         else if (reading) 
             column <= column + 1;
-        else if (fullB) 
+        else if (&emptyA) 
             column <= '0;
-    end
-
-    // Counter for incrementing which byte-size column we're reading from the FIFO
-    reg [2:0] row;
-    always_ff@(posedge CLOCK_50, negedge rst_n) begin
-        if (!rst_n) 
-            row <= '0;
-        else if (row_rst)
-            row <= '0;
-        else if (mac_exec) 
-            row <= row + 1;
-        else if (fullB) 
-            row <= '0;
-    end
-
-    // ff to reset controlling signals on READ so we can reuse FILLB for mac
-    //TODO: might have error with driving in two places in EXEC stage of SM
-    reg mac_exec;
-    always_ff@(posedge CLOCK_50, negedge rst_n) begin 
-        if (!rst_n)
-            mac_exec <= '0;
     end
 
     // Counter for address, to increment rows
@@ -180,6 +159,14 @@ module minilab1_2(
             address <= address + 1;
     end
 
+    // Counter for controlling the otput from MAC
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n)
+            mac_count <= '0;
+        else if (next_cout)
+            mac_count <= mac_count + 1;
+    end
+
     // State machine
     always_comb
     begin
@@ -188,6 +175,10 @@ module minilab1_2(
         next_state = state;
         reading = 0;
         nextrow = 0;
+        next_cout = 0;
+        Ain = '0;
+        Bin = '0;
+        Clr = 0;
 
         if (!rst_n)
         begin
@@ -198,89 +189,111 @@ module minilab1_2(
             rdenB = 0;
             wrenA = '0;
             rdenA = '0;
+            for (integer i = 0; i < 8; i++) 
+                cout_reg[i] = '0;
         end
 
         case(state)
             READ:
             begin
                 read = 1'b1;
-                // Need to check for data_valid signal from memory before filling the FIFO               
-                else if (readdatavalid & !fullB)        // Fill B first
+                // Need to check for data_valid signal from memory before filling the FIFO
+                if (readdatavalid & !fullB)             // Fill B first
                     next_state = FILLB;
                 else if (readdatavalid & !(allFull))    // Fill A second
                     next_state = FILLA;
-                else if (fullB & allFull) begin         // Can start MAC
-                    row_rst = '1;                       // assertion to reset the row counter after 
+                else if (allFull & fullB)               // Start MAC
                     next_state = EXEC;
-                end
             end
-
             FILLB:
             begin
                 // As long as B FIFO is not full, keep filling
-                if (!fullB) begin
+                if (!fullB)
+                begin
                     reading = 1;
                     wrenB = 1'b1;
                     datain = readdata_byte[column];
                 end
-                else if (mac_exec) 
-                    next_state = EXEC;   
-                else begin
+                else
+                begin
+                    wrenB = 0;
                     next_state = READ;
                     nextrow = 1;
                 end
             end
             FILLA:
             begin
-                if(!allFull)
+                if(!allFull & ~waitrequest)
                 begin
                     reading = 1;
                     wrenA |= (1 << (address-1));
                     datain = readdata_byte[column];
 
-                    // Read the next row
-                    if (column == 7)
+                    // Read the next row when current FIFO is full
+                    if (fullA[address-1])
                     begin
-                        nextrow = 1; 
-                        wrenA |= (1 << (address-1));    
+                        nextrow = 1;
+                        wrenA = '0;
                         next_state = READ;
                     end
                 end
+                else if (allFull & ~waitrequest) begin
+                    wrenA = '0;
+                    next_state = EXEC;
+                end
             end
-            
+            WAIT:
+            begin
+                rdenB = 0;
+                rdenA = '0;
+                next_state = EXEC;
+            end
             EXEC:
             begin
-                mac_exec = '1;
-                // assert read signals;
-                rdenA = '1;
-                rdenB = '1;
+                // Need to pop 1 entry from B FIFO and 1 entry from A FIFO
+                // Need to refill the B FIFO, A.K.A propogate through
+                // Pop the FIFO, and wait till its not full to write back to it, which should be the value popped
+                
+                // When the current A FIFO is empty, move to the next cout for MAC
+                if (emptyA[mac_count]) begin
+                    cout_reg[mac_count] = Cout;     // Output from mac is a wire, need to store that output in a register
+                    Clr = 1;
+                    next_cout = 1;
 
-                /*  NOTE: this is me exploiting the logic we already have here. will need other logic to support 
-                    the interface between mac completing one entry in A (the 8 cycles it will take to read) and 
-                    incrementing the counter to indicate which column we need to read from
-
-                    by the time we get here, the logic for filling A is no longer needed. I want to reuse it to 
-                    count where we are within each colcumn for reading. 
-                */
-
-                // logic to put the output of B FIFO into a 64 bit array so fill B can readd it to the FIFO
-                readdata = readdata << 8;
-                readdata |= dataoutB;
-                if (&row) begin   //row == 7
-                    
-                    next_state = FILLB;
+                    // Still need to do Bin and Ain for the MAC
+                    datain = dataoutB;
+                    reading = 1;
+                    wrenB = 1;
+                    Bin = dataoutB;
+                    Ain = dataoutA[mac_count];
+                    next_state = WAIT;
+                end
+                else begin
+                    if (fullB) begin
+                        rdenA |= (1 << (mac_count));    // Activate the ith A FIFO
+                        rdenB = 1;
+                        next_state = WAIT;
+                    end
+                    else begin
+                        datain = dataoutB;
+                        reading = 1;
+                        wrenB = 1;
+                        Bin = dataoutB;
+                        Ain = dataoutA[mac_count];      // Ain input of the MAC from the ith A FIFO
+                        next_state = WAIT;
+                    end
                 end
 
+                // When the A FIFOs are exhausted, stop the MAC unit
+                if (&emptyA)
+                    next_state = DONE;
             end
-            
-            DONE: 
-            begin 
-                // TODO: 
-            end
-            
+            // DONE STATE
             default:
-            begin end 
+            begin
+                // TODO
 
+            end
         endcase
     end
 endmodule
