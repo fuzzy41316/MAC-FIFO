@@ -1,15 +1,35 @@
-I:/ece554/Minilab1/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/input_mem.mif
+I:/ece554/Minilab1/questa_project/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/questa_project/input_mem.mif
+Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+-- Loading package STANDARD
+** Error: I:/ece554/Minilab1/questa_project/input_mem.mif(2): near "WIDTH": syntax error
+** Note: I:/ece554/Minilab1/questa_project/input_mem.mif(2): VHDL Compiler exiting
+
+} {4.0 5.0} {}} I:/ece554/Minilab1/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/input_mem.mif
 Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
 -- Loading package STANDARD
 ** Error: I:/ece554/Minilab1/input_mem.mif(2): near "WIDTH": syntax error
 ** Note: I:/ece554/Minilab1/input_mem.mif(2): VHDL Compiler exiting
 
-} {4.0 5.0} {}} I:/ece554/Minilab1/fifo.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/fifo.v
+} {4.0 5.0} {}} I:/ece554/Minilab1/mac.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/mac.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module mac
+
+Top level modules:
+	mac
+
+} {} {}} I:/ece554/Minilab1/fifo.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/fifo.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling module fifo
 
 Top level modules:
 	fifo
+
+} {} {}} I:/ece554/Minilab1/minilab1_2.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/minilab1_2.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module minilab1_2
+
+Top level modules:
+	minilab1_2
 
 } {} {}} I:/ece554/Minilab1/memory.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/memory.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
@@ -17,13 +37,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 
 Top level modules:
 	mem_wrapper
-
-} {} {}} I:/ece554/Minilab1/minilab_test.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/minilab_test.sv
-Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
--- Compiling module minilab_test
-
-Top level modules:
-	minilab_test
 
 } {} {}} I:/ece554/Minilab1/rom.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/rom.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023

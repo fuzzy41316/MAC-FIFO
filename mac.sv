@@ -1,4 +1,4 @@
-module mac_ip
+module mac
 (
 input clk,
 input rst_n,

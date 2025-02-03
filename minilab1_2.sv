@@ -27,7 +27,7 @@ module minilab1_2(
     // Internal wires
     /* SHARED */
     logic [7:0] datain;
-    logic rst_n, Clr;
+    logic rst_n, Clr, aclr;
 
     /* MEMORY */
     reg [31:0] address;
@@ -90,6 +90,7 @@ module minilab1_2(
     for (k = 0; k < 8; k++)  
     begin
         fifo A_fifo(
+            .aclr(aclr),
             .data(datain),
             .rdclk(CLOCK_50),
             .rdreq(rdenA[k]),
@@ -107,6 +108,7 @@ module minilab1_2(
         begin
             fifo B_fifo(
                 // Inputs
+                .aclr(aclr),
                 .data(datain),
                 .rdclk(CLOCK_50),
                 .rdreq(rdenB),
@@ -179,6 +181,7 @@ module minilab1_2(
         Ain = '0;
         Bin = '0;
         Clr = 0;
+        aclr = 0;
 
         if (!rst_n)
         begin
@@ -191,6 +194,7 @@ module minilab1_2(
             rdenA = '0;
             for (integer i = 0; i < 8; i++) 
                 cout_reg[i] = '0;
+            aclr = 1;
         end
 
         case(state)

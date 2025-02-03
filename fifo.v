@@ -38,6 +38,7 @@
 `timescale 1 ps / 1 ps
 // synopsys translate_on
 module fifo (
+	aclr,
 	data,
 	rdclk,
 	rdreq,
@@ -47,6 +48,7 @@ module fifo (
 	rdempty,
 	wrfull);
 
+	input	  aclr;
 	input	[7:0]  data;
 	input	  rdclk;
 	input	  rdreq;
@@ -55,6 +57,13 @@ module fifo (
 	output	[7:0]  q;
 	output	  rdempty;
 	output	  wrfull;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_off
+`endif
+	tri0	  aclr;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_on
+`endif
 
 	wire [7:0] sub_wire0;
 	wire  sub_wire1;
@@ -64,6 +73,7 @@ module fifo (
 	wire  wrfull = sub_wire2;
 
 	dcfifo	dcfifo_component (
+				.aclr (aclr),
 				.data (data),
 				.rdclk (rdclk),
 				.rdreq (rdreq),
@@ -72,7 +82,6 @@ module fifo (
 				.q (sub_wire0),
 				.rdempty (sub_wire1),
 				.wrfull (sub_wire2),
-				.aclr (),
 				.eccstatus (),
 				.rdfull (),
 				.rdusedw (),
@@ -87,8 +96,10 @@ module fifo (
 		dcfifo_component.lpm_widthu = 3,
 		dcfifo_component.overflow_checking = "ON",
 		dcfifo_component.rdsync_delaypipe = 3,
+		dcfifo_component.read_aclr_synch = "OFF",
 		dcfifo_component.underflow_checking = "ON",
 		dcfifo_component.use_eab = "ON",
+		dcfifo_component.write_aclr_synch = "OFF",
 		dcfifo_component.wrsync_delaypipe = 3;
 
 
@@ -117,7 +128,7 @@ endmodule
 // Retrieval info: PRIVATE: UNDERFLOW_CHECKING NUMERIC "0"
 // Retrieval info: PRIVATE: UsedW NUMERIC "1"
 // Retrieval info: PRIVATE: Width NUMERIC "8"
-// Retrieval info: PRIVATE: dc_aclr NUMERIC "0"
+// Retrieval info: PRIVATE: dc_aclr NUMERIC "1"
 // Retrieval info: PRIVATE: diff_widths NUMERIC "0"
 // Retrieval info: PRIVATE: msb_usedw NUMERIC "0"
 // Retrieval info: PRIVATE: output_width NUMERIC "8"
@@ -138,9 +149,12 @@ endmodule
 // Retrieval info: CONSTANT: LPM_WIDTHU NUMERIC "3"
 // Retrieval info: CONSTANT: OVERFLOW_CHECKING STRING "ON"
 // Retrieval info: CONSTANT: RDSYNC_DELAYPIPE NUMERIC "3"
+// Retrieval info: CONSTANT: READ_ACLR_SYNCH STRING "OFF"
 // Retrieval info: CONSTANT: UNDERFLOW_CHECKING STRING "ON"
 // Retrieval info: CONSTANT: USE_EAB STRING "ON"
+// Retrieval info: CONSTANT: WRITE_ACLR_SYNCH STRING "OFF"
 // Retrieval info: CONSTANT: WRSYNC_DELAYPIPE NUMERIC "3"
+// Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT GND "aclr"
 // Retrieval info: USED_PORT: data 0 0 8 0 INPUT NODEFVAL "data[7..0]"
 // Retrieval info: USED_PORT: q 0 0 8 0 OUTPUT NODEFVAL "q[7..0]"
 // Retrieval info: USED_PORT: rdclk 0 0 0 0 INPUT NODEFVAL "rdclk"
@@ -149,6 +163,7 @@ endmodule
 // Retrieval info: USED_PORT: wrclk 0 0 0 0 INPUT NODEFVAL "wrclk"
 // Retrieval info: USED_PORT: wrfull 0 0 0 0 OUTPUT NODEFVAL "wrfull"
 // Retrieval info: USED_PORT: wrreq 0 0 0 0 INPUT NODEFVAL "wrreq"
+// Retrieval info: CONNECT: @aclr 0 0 0 0 aclr 0 0 0 0
 // Retrieval info: CONNECT: @data 0 0 8 0 data 0 0 8 0
 // Retrieval info: CONNECT: @rdclk 0 0 0 0 rdclk 0 0 0 0
 // Retrieval info: CONNECT: @rdreq 0 0 0 0 rdreq 0 0 0 0
