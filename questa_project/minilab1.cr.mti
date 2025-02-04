@@ -1,42 +1,49 @@
-I:/ece554/Minilab1/fifo.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/fifo.v
-Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
--- Compiling module fifo
+I:/ece554/Minilab1/questa_project/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/questa_project/input_mem.mif
+Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+-- Loading package STANDARD
+** Error: I:/ece554/Minilab1/questa_project/input_mem.mif(2): near "WIDTH": syntax error
+** Note: I:/ece554/Minilab1/questa_project/input_mem.mif(2): VHDL Compiler exiting
 
-Top level modules:
-	fifo
+} {4.0 5.0} {}} I:/ece554/Minilab1/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/input_mem.mif
+Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+-- Loading package STANDARD
+** Error: I:/ece554/Minilab1/input_mem.mif(2): near "WIDTH": syntax error
+** Note: I:/ece554/Minilab1/input_mem.mif(2): VHDL Compiler exiting
 
-} {} {}} I:/ece554/Minilab1/mac.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/mac.sv
+} {4.0 5.0} {}} I:/ece554/Minilab1/mac.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/mac.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling module mac
 
 Top level modules:
 	mac
 
-} {} {}} I:/ece554/Minilab1/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/input_mem.mif
-Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
--- Loading package STANDARD
-** Error: I:/ece554/Minilab1/input_mem.mif(2): near "WIDTH": syntax error
-** Note: I:/ece554/Minilab1/input_mem.mif(2): VHDL Compiler exiting
+} {} {}} I:/ece554/Minilab1/fifo.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/fifo.v
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module fifo
 
-} {4.0 5.0} {}} I:/ece554/Minilab1/questa_project/input_mem.mif {0 {vcom -work work -2002 -explicit -vopt -stats=none I:/ece554/Minilab1/questa_project/input_mem.mif
-Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
--- Loading package STANDARD
-** Error: I:/ece554/Minilab1/questa_project/input_mem.mif(2): near "WIDTH": syntax error
-** Note: I:/ece554/Minilab1/questa_project/input_mem.mif(2): VHDL Compiler exiting
+Top level modules:
+	fifo
 
-} {4.0 5.0} {}} I:/ece554/Minilab1/memory.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/memory.v
+} {} {}} I:/ece554/Minilab1/minilab1.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece554/Minilab1/minilab1.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module minilab1
+
+Top level modules:
+	minilab1
+
+} {} {}} I:/ece554/Minilab1/memory.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/memory.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling module mem_wrapper
 
 Top level modules:
 	mem_wrapper
 
-} {} {}} I:/ece554/Minilab1/LPM_ADD_SUB_ip.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/LPM_ADD_SUB_ip.v
+} {} {}} I:/ece554/Minilab1/rom.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/rom.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
--- Compiling module LPM_ADD_SUB_ip
+-- Compiling module rom
 
 Top level modules:
-	LPM_ADD_SUB_ip
+	rom
 
 } {} {}} I:/ece554/Minilab1/LPM_MULT_ip.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/LPM_MULT_ip.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
@@ -45,11 +52,11 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 Top level modules:
 	LPM_MULT_ip
 
-} {} {}} I:/ece554/Minilab1/rom.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/rom.v
+} {} {}} I:/ece554/Minilab1/LPM_ADD_SUB_ip.v {1 {vlog -work work -vopt -stats=none I:/ece554/Minilab1/LPM_ADD_SUB_ip.v
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
--- Compiling module rom
+-- Compiling module LPM_ADD_SUB_ip
 
 Top level modules:
-	rom
+	LPM_ADD_SUB_ip
 
 } {} {}}
