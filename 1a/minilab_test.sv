@@ -144,43 +144,50 @@ module minilab_test();
         @(negedge CLOCK_50) KEY[0] = 1; 
         
         $display("Test 4: checking Cout values\n///////////////////////////////////////////////////////////////////");
-        @(minilab1.state == 6) begin
-            if (minilab1.cout_reg[0] !== 588) begin
-                $display("Expected c00: 588, actual: %d", minilab1.cout_reg[0]);
-                $stop();
-            end
-            if (minilab1.cout_reg[1] !== 1036) begin
-                $display("Expected c01: 1036, actual: %d", minilab1.cout_reg[1]);
-                $stop();
-            end
-            if (minilab1.cout_reg[2] !== 1484) begin
-                $display("Expected c02: 1484, actual: %d", minilab1.cout_reg[2]);
-                $stop();
-            end
-            if (minilab1.cout_reg[3] !== 1932) begin
-                $display("Expected c03: 1932, actual: %d", minilab1.cout_reg[3]);
-                $stop();
-            end
-            if (minilab1.cout_reg[4] !== 2380) begin
-                $display("Expected c04: 2380, actual: %d", minilab1.cout_reg[4]);
-                $stop();
-            end
-            if (minilab1.cout_reg[5] !== 2828) begin
-                $display("Expected c05: 2828, actual: %d", minilab1.cout_reg[5]);
-                $stop();
-            end
-            if (minilab1.cout_reg[6] !== 3276) begin
-                $display("Expected c06: 3276, actual: %d", minilab1.cout_reg[6]);
-                $stop();
-            end
-            if (minilab1.cout_reg[7] !== 3724) begin
-                $display("Expected c07: 3724, actual: %d", minilab1.cout_reg[7]);
-                $stop();
-            end
-        end
+        @(minilab1.state == 6);        
+        repeat(3)@(posedge CLOCK_50);
 
-        for (int i = 0; i < 8; i++) 
-            $display("  Cout%d:%d", i, minilab1.cout_reg[i]);
+        if (minilab1.cout_reg_00 !== 780) begin
+            $display("Expected c00: 588, actual: %d", minilab1.cout_reg_00);
+            $stop();
+        end
+        if (minilab1.cout_reg_01 !== 1356) begin
+            $display("Expected c01: 1036, actual: %d", minilab1.cout_reg_01);
+            $stop();
+        end
+        if (minilab1.cout_reg_02 !== 1932) begin
+            $display("Expected c02: 1484, actual: %d", minilab1.cout_reg_02);
+            $stop();
+        end
+        if (minilab1.cout_reg_03 !== 2508) begin
+            $display("Expected c03: 1932, actual: %d", minilab1.cout_reg_03);
+            $stop();
+        end
+        if (minilab1.cout_reg_04 !== 3084) begin
+            $display("Expected c04: 2380, actual: %d", minilab1.cout_reg_04);
+            $stop();
+        end
+        if (minilab1.cout_reg_05 !== 3660) begin
+            $display("Expected c05: 2828, actual: %d", minilab1.cout_reg_05);
+            $stop();
+        end
+        if (minilab1.cout_reg_06 !== 4236) begin
+            $display("Expected c06: 3276, actual: %d", minilab1.cout_reg_06);
+            $stop();
+        end
+        if (minilab1.cout_reg_07 !== 4812) begin
+            $display("Expected c07: 3724, actual: %d", minilab1.cout_reg_07);
+            $stop();
+        end
+        
+        $display("  c00:%d", minilab1.cout_reg_00);
+        $display("  c01:%d", minilab1.cout_reg_01);
+        $display("  c02:%d", minilab1.cout_reg_02);
+        $display("  c03:%d", minilab1.cout_reg_03);
+        $display("  c04:%d", minilab1.cout_reg_04);
+        $display("  c05:%d", minilab1.cout_reg_05);
+        $display("  c06:%d", minilab1.cout_reg_06);
+        $display("  c07:%d", minilab1.cout_reg_07);
         $display("TEST PASSED\n///////////////////////////////////////////////////////////////////");
 
         $display("End of test.");

@@ -44,7 +44,7 @@ module minilab1(
     // Internal wires
     /* SHARED */
     logic [7:0] datain;
-    logic rst_n, Clr, aclr;
+    logic rst_n, Clr;
 
     /* MEMORY */
     reg [31:0] address;
@@ -71,13 +71,20 @@ module minilab1(
     logic rdenB, wrenB, emptyB, fullB;          // Control signals for the B FIFO
 
     /* MAC */
+    logic startExec;
     logic [7:0] Ain;
     logic En;
     logic [7:0] Bin;
     logic [23:0] Cout;
-    reg [23:0] cout_reg [7:0];
-    reg [2:0] mac_count;        // TODO: increment the mac_count depending on the step you're on
-                                // i.e., first Cout, then second Cout, then third Cout.
+    logic [23:0] cout_reg_00;
+    logic [23:0] cout_reg_01;
+    logic [23:0] cout_reg_02;
+    logic [23:0] cout_reg_03;
+    logic [23:0] cout_reg_04;
+    logic [23:0] cout_reg_05;
+    logic [23:0] cout_reg_06;
+    logic [23:0] cout_reg_07;
+    reg [2:0] mac_count;        // increment the mac_count depending on the step you're on
 
     // Propogate enable
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
@@ -85,6 +92,8 @@ module minilab1(
             En <= 0;
         else if (|rdenA & rdenB)
             En <= 1;
+        else
+            En <= 0;
     end
     
     // Instantiate the MAC module
@@ -116,16 +125,16 @@ module minilab1(
     for (k = 0; k < 8; k++)  
     begin: A_fifo_gen
         fifo A_fifo(
-            .aclr(aclr),
-            .data(datain),
-            .rdclk(CLOCK_50),
-            .rdreq(rdenA[k]),
-            .wrclk(CLOCK_50),
-            .wrreq(wrenA[k]),
-            // Outputs
-            .q(dataoutA[k]),
-            .rdempty(emptyA[k]),
-            .wrfull(fullA[k])
+            // Inputs
+            .clk(CLOCK_50),
+            .rst_n(rst_n),
+            .rden(rdenA[k]),
+            .wren(wrenA[k]),
+            .i_data(datain),
+            //Outputs
+            .o_data(dataoutA[k]),
+            .full(fullA[k]),
+            .empty(emptyA[k])
         );
     end
     endgenerate
@@ -133,17 +142,16 @@ module minilab1(
     generate
         begin: B_fifo_gen
             fifo B_fifo(
-                // Inputs
-                .aclr(aclr),
-                .data(datain),
-                .rdclk(CLOCK_50),
-                .rdreq(rdenB),
-                .wrclk(CLOCK_50),
-                .wrreq(wrenB),
-                // Outputs
-                .q(dataoutB),
-                .rdempty(emptyB),
-                .wrfull(fullB)
+                //Inputs
+                .clk(CLOCK_50),
+                .rst_n(rst_n),
+                .rden(rdenB),
+                .wren(wrenB),
+                .i_data(datain),
+                //Outputs
+                .o_data(dataoutB),
+                .full(fullB),
+                .empty(emptyB)
             );
         end
     endgenerate
@@ -180,8 +188,11 @@ module minilab1(
     end
 
     // Counter for address, to increment rows
+    logic fillB;
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
         if (!rst_n)
+            address <= '0;
+        else if (fillB)
             address <= '0;
         else if (nextrow)
             address <= address + 1;
@@ -189,10 +200,49 @@ module minilab1(
 
     // Counter for controlling the otput from MAC
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
-        if (!rst_n)
+        if (!rst_n) begin
             mac_count <= '0;
-        else if (next_cout)
+            Clr <= 1;
+        end
+        else if (next_cout) begin
+            Clr <= 1;
             mac_count <= mac_count + 1;
+        end
+        else 
+            Clr <= 0;
+    end
+
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n) begin
+            cout_reg_00 <= '0;
+            cout_reg_01 <= '0;
+            cout_reg_02 <= '0;
+            cout_reg_03 <= '0;
+            cout_reg_04 <= '0;
+            cout_reg_05 <= '0;
+            cout_reg_06 <= '0;
+            cout_reg_07 <= '0;
+        end
+        else begin
+            case(mac_count)
+                3'd0: cout_reg_00 <= Cout;
+                3'd1: cout_reg_01 <= Cout;
+                3'd2: cout_reg_02 <= Cout;
+                3'd3: cout_reg_03 <= Cout;
+                3'd4: cout_reg_04 <= Cout;
+                3'd5: cout_reg_05 <= Cout;
+                3'd6: cout_reg_06 <= Cout;
+                3'd7: cout_reg_07 <= Cout;
+            endcase
+        end
+    end
+
+    logic Exec;
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if(!rst_n)
+            Exec <= 0;
+        else if (startExec)
+            Exec <= 1;
     end
 
     // State machine
@@ -209,10 +259,10 @@ module minilab1(
         wrenB = 0;
         rdenA = '0;
         rdenB = 0;
-        Clr = 0;
-        aclr = 0;
         Ain = '0;
         Bin = '0;
+        fillB = 0;
+        startExec = 0;
 
         case(state)
             IDLE:
@@ -220,21 +270,19 @@ module minilab1(
                 next_state = READ;
                 rdenA = '0;
                 rdenB = 0;
-                aclr = 1;
-                Clr = 1;
-                for (int i = 0; i < 8; i++)
-                    cout_reg[i] = '0;
             end
             READ:
             begin
                 read = 1'b1;
                 // Need to check for data_valid signal from memory before filling the FIFO
-                if (readdatavalid & !fullB)             // Fill B first
+                if (readdatavalid & Exec) begin                                 // Refill B 
                     next_state = FILLB;
-                else if (readdatavalid & !(allFull))    // Fill A second
-                    next_state = FILLA;
-                else if (allFull & fullB)               // Start MAC
-                    next_state = EXEC;
+                    next_cout = 1;
+                end
+                else if (readdatavalid & !fullB)            // Fill B 
+                    next_state = FILLB;
+                else if (readdatavalid & !(allFull))        // Fill A
+                    next_state = FILLA;      
             end
             FILLB:
             begin
@@ -245,7 +293,12 @@ module minilab1(
                     wrenB = 1'b1;
                     datain = readdata_byte[column];
                 end
-                else
+                else if (Exec)
+                begin
+                    wrenB = 0;
+                    next_state = EXEC;
+                end
+                else 
                 begin
                     wrenB = 0;
                     next_state = READ;
@@ -271,60 +324,192 @@ module minilab1(
                 else if (allFull & ~waitrequest) begin
                     wrenA = '0;
                     next_state = EXEC;
+
+                    // Set up to fill B many times 
+                    fillB = 1;                      // Resets address to fill B again
+                    startExec = 1;
                 end
             end
             WAIT:
             begin
-                rdenB = 0;
-                rdenA = '0;
                 next_state = EXEC;
             end
             EXEC:
             begin
-                // Need to pop 1 entry from B FIFO and 1 entry from A FIFO
-                // Need to refill the B FIFO, A.K.A propogate through
-                // Pop the FIFO, and wait till its not full to write back to it, which should be the value popped
-                
-                // When the current A FIFO is empty, move to the next cout for MAC
-                if (emptyA[mac_count]) begin
-                    cout_reg[mac_count] = Cout;     // Output from mac is a wire, need to store that output in a register
-                    Clr = 1;
-                    next_cout = 1;
-
-                    // Still need to do Bin and Ain for the MAC
-                    datain = dataoutB;
-                    reading = 1;
-                    wrenB = 1;
-                    Bin = dataoutB;
-                    Ain = dataoutA[mac_count];
-                    next_state = WAIT;
-                end
-                else begin
-                    if (fullB) begin
-                        rdenA |= (1 << (mac_count));    // Activate the ith A FIFO
-                        rdenB = 1;
-                        next_state = WAIT;
-                    end
-                    else begin
-                        datain = dataoutB;
-                        reading = 1;
-                        wrenB = 1;
-                        Bin = dataoutB;
-                        Ain = dataoutA[mac_count];      // Ain input of the MAC from the ith A FIFO
-                        next_state = WAIT;
-                    end
-                end
-
                 // When the A FIFOs are exhausted, stop the MAC unit
                 if (&emptyA)
                     next_state = DONE;
+                // Once B is empty, refill before emptying the next row in A
+                else if (emptyB) 
+                    next_state = READ;  
+                // Pop off from A and B, takes one cycle
+                rdenB = 1;
+                rdenA |= (1 << (mac_count));
+                Ain = dataoutA[mac_count];
+                Bin = dataoutB;
             end
             // DONE STATE
             default:
             begin
-                // TODO
-
+                next_state = DONE;
             end
         endcase
     end
+
+    // Implement the LED display
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[3:0])
+      4'd0: HEX0 = HEX_0;
+	   4'd1: HEX0 = HEX_1;
+	   4'd2: HEX0 = HEX_2;
+	   4'd3: HEX0 = HEX_3;
+	   4'd4: HEX0 = HEX_4;
+	   4'd5: HEX0 = HEX_5;
+	   4'd6: HEX0 = HEX_6;
+	   4'd7: HEX0 = HEX_7;
+	   4'd8: HEX0 = HEX_8;
+	   4'd9: HEX0 = HEX_9;
+	   4'd10: HEX0 = HEX_10;
+	   4'd11: HEX0 = HEX_11;
+	   4'd12: HEX0 = HEX_12;
+	   4'd13: HEX0 = HEX_13;
+	   4'd14: HEX0 = HEX_14;
+	   4'd15: HEX0 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX0 = OFF;
+  end
+end
+
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[7:4])
+      4'd0: HEX1 = HEX_0;
+	   4'd1: HEX1 = HEX_1;
+	   4'd2: HEX1 = HEX_2;
+	   4'd3: HEX1 = HEX_3;
+	   4'd4: HEX1 = HEX_4;
+	   4'd5: HEX1 = HEX_5;
+	   4'd6: HEX1 = HEX_6;
+	   4'd7: HEX1 = HEX_7;
+	   4'd8: HEX1 = HEX_8;
+	   4'd9: HEX1 = HEX_9;
+	   4'd10: HEX1 = HEX_10;
+	   4'd11: HEX1 = HEX_11;
+	   4'd12: HEX1 = HEX_12;
+	   4'd13: HEX1 = HEX_13;
+	   4'd14: HEX1 = HEX_14;
+	   4'd15: HEX1 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX1 = OFF;
+  end
+end
+
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[11:8])
+      4'd0: HEX2 = HEX_0;
+	   4'd1: HEX2 = HEX_1;
+	   4'd2: HEX2 = HEX_2;
+	   4'd3: HEX2 = HEX_3;
+	   4'd4: HEX2 = HEX_4;
+	   4'd5: HEX2 = HEX_5;
+	   4'd6: HEX2 = HEX_6;
+	   4'd7: HEX2 = HEX_7;
+	   4'd8: HEX2 = HEX_8;
+	   4'd9: HEX2 = HEX_9;
+	   4'd10: HEX2 = HEX_10;
+	   4'd11: HEX2 = HEX_11;
+	   4'd12: HEX2 = HEX_12;
+	   4'd13: HEX2 = HEX_13;
+	   4'd14: HEX2 = HEX_14;
+	   4'd15: HEX2 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX2 = OFF;
+  end
+end
+
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[15:12])
+      4'd0: HEX3 = HEX_0;
+	   4'd1: HEX3 = HEX_1;
+	   4'd2: HEX3 = HEX_2;
+	   4'd3: HEX3 = HEX_3;
+	   4'd4: HEX3 = HEX_4;
+	   4'd5: HEX3 = HEX_5;
+	   4'd6: HEX3 = HEX_6;
+	   4'd7: HEX3 = HEX_7;
+	   4'd8: HEX3 = HEX_8;
+	   4'd9: HEX3 = HEX_9;
+	   4'd10: HEX3 = HEX_10;
+	   4'd11: HEX3 = HEX_11;
+	   4'd12: HEX3 = HEX_12;
+	   4'd13: HEX3 = HEX_13;
+	   4'd14: HEX3 = HEX_14;
+	   4'd15: HEX3 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX3 = OFF;
+  end
+end
+
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[19:16])
+      4'd0: HEX4 = HEX_0;
+	   4'd1: HEX4 = HEX_1;
+	   4'd2: HEX4 = HEX_2;
+	   4'd3: HEX4 = HEX_3;
+	   4'd4: HEX4 = HEX_4;
+	   4'd5: HEX4 = HEX_5;
+	   4'd6: HEX4 = HEX_6;
+	   4'd7: HEX4 = HEX_7;
+	   4'd8: HEX4 = HEX_8;
+	   4'd9: HEX4 = HEX_9;
+	   4'd10: HEX4 = HEX_10;
+	   4'd11: HEX4 = HEX_11;
+	   4'd12: HEX4 = HEX_12;
+	   4'd13: HEX4 = HEX_13;
+	   4'd14: HEX4 = HEX_14;
+	   4'd15: HEX4 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX4 = OFF;
+  end
+end
+
+always @(*) begin
+  if (state == DONE & SW[0]) begin
+    case(cout_reg_00[23:20])
+      4'd0: HEX5 = HEX_0;
+	   4'd1: HEX5 = HEX_1;
+	   4'd2: HEX5 = HEX_2;
+	   4'd3: HEX5 = HEX_3;
+	   4'd4: HEX5 = HEX_4;
+	   4'd5: HEX5 = HEX_5;
+	   4'd6: HEX5 = HEX_6;
+	   4'd7: HEX5 = HEX_7;
+	   4'd8: HEX5 = HEX_8;
+	   4'd9: HEX5 = HEX_9;
+	   4'd10: HEX5 = HEX_10;
+	   4'd11: HEX5 = HEX_11;
+	   4'd12: HEX5 = HEX_12;
+	   4'd13: HEX5 = HEX_13;
+	   4'd14: HEX5 = HEX_14;
+	   4'd15: HEX5 = HEX_15;
+    endcase
+  end
+  else begin
+    HEX5 = OFF;
+  end
+end
 endmodule
