@@ -1,4 +1,4 @@
-module mac
+module mac_pipelined
 (
 input clk,
 input rst_n,
@@ -8,29 +8,67 @@ input [7:0] Ain,
 input [7:0] Bin,
 output logic [23:0] Cout
 );
+    // Input stage
+    logic [7:0]Ain_ff;
+    logic [7:0]Bin_ff;
 
-    // Instantiate the multiplier
-    logic [23:0] mult_res;
-    LPM_MULT_ip mult(.dataa(Ain), .datab(Bin), .result(mult_res));
+    // Multiplication stage
+    logic [15:0] mult_AB;
+    logic [15:0] mult_AB_ff;
+    logic [23:0] mult_AB_zeroExt;
 
-    // Instantiate the acumulator
-    logic [23:0] accum_res;
-    logic [23:0] result;
-    LPM_ADD_SUB_ip accum(.dataa(accum_res), .datab(mult_res), .result(result));
+    // Accumulation stage
+    logic [23:0] accum_result;
+    logic [23:0] accum_result_ff;
 
-    always_ff @(posedge clk, negedge rst_n)
-    begin
+    // Pipeline inputs
+    always_ff @(posedge clk, negedge rst_n) begin 
         if (!rst_n) begin
-            Cout <= '0;
-            accum_res <= '0;
-        end
-        else if (Clr) begin
-            Cout <= '0;
-            accum_res <= '0;
+            Ain_ff <= '0;
+            Bin_ff <= '0;
         end
         else if (En) begin
-            Cout <= result;
-            accum_res <= result;
+            Ain_ff <= Ain;
+            Bin_ff <= Bin;
         end
     end
+
+    // Multiplication pipeline stage
+    assign mult_AB = Ain_ff * Bin_ff;
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            mult_AB_ff <= '0;
+        end
+        else if (En) begin
+            mult_AB_ff <= mult_AB;
+        end
+    end
+
+    // Sign extend the output to 24 bits, and accumulate the result
+    assign mult_AB_zeroExt = {8'b0, mult_AB_ff};
+    assign accum_result = (!rst_n) ? '0 : Clr ? '0 : En ? accum_result + mult_AB_zeroExt : accum_result;
+
+    // Accumulation pipeline stage
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            accum_result_ff <= '0;
+        end
+        else if (Clr) begin
+            accum_result_ff <= '0;
+        end
+        else if (En) begin
+            accum_result_ff <= accum_result;
+        end
+    end
+
+    // Cout is given the accumulated result unless reset or cleared
+    always_ff @(posedge clk, negedge rst_n) begin
+        if (!rst_n)
+            Cout <= '0;
+        else if (Clr)
+            Cout <= '0;
+        else if (En)
+            Cout <= accum_result_ff;
+    end
+
 endmodule
