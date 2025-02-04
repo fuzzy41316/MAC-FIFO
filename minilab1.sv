@@ -44,21 +44,26 @@ module minilab1(
     // Internal wires
     /* SHARED */
     logic [7:0] datain;
-    logic rst_n, Clr;
+    logic rst_n, Clr, aclr;
+    logic [63:0] readdata_ff; 
+    logic readdatavalid_ff;
+    logic waitrequest_ff;
+    logic Exec;
+
 
     /* MEMORY */
     reg [31:0] address;
     logic [63:0] readdata;
     logic readdatavalid, read, waitrequest;
     logic [7:0] readdata_byte [7:0];
-    assign readdata_byte[0] = readdata[63:56];
-    assign readdata_byte[1] = readdata[55:48];
-    assign readdata_byte[2] = readdata[47:40];
-    assign readdata_byte[3] = readdata[39:32];
-    assign readdata_byte[4] = readdata[31:24];
-    assign readdata_byte[5] = readdata[23:16];
-    assign readdata_byte[6] = readdata[15:8];
-    assign readdata_byte[7] = readdata[7:0];
+    assign readdata_byte[0] = readdata_ff[63:56];
+    assign readdata_byte[1] = readdata_ff[55:48];
+    assign readdata_byte[2] = readdata_ff[47:40];
+    assign readdata_byte[3] = readdata_ff[39:32];
+    assign readdata_byte[4] = readdata_ff[31:24];
+    assign readdata_byte[5] = readdata_ff[23:16];
+    assign readdata_byte[6] = readdata_ff[15:8];
+    assign readdata_byte[7] = readdata_ff[7:0];
 
     /* A ARRAY */
     logic [7:0] dataoutA [7:0];                 // Row of the 2D A array stored into the FIFO
@@ -73,8 +78,11 @@ module minilab1(
     /* MAC */
     logic startExec;
     logic [7:0] Ain;
+    logic [7:0] Ain_ff;
     logic En;
+    logic En_ff;
     logic [7:0] Bin;
+    logic [7:0] Bin_ff;
     logic [23:0] Cout;
     logic [23:0] cout_reg_00;
     logic [23:0] cout_reg_01;
@@ -86,13 +94,33 @@ module minilab1(
     logic [23:0] cout_reg_07;
     reg [2:0] mac_count;        // increment the mac_count depending on the step you're on
 
+    //MEM TO FIFO flops
+    logic [7:0] rdenA_ff, wrenA_ff, datain_ff;
+    logic rdenB_ff, wrenB_ff;
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin 
+        if (!rst_n) begin 
+            rdenA_ff <= '0;
+            wrenA_ff <= '0; 
+            datain_ff <= '0;
+            rdenB_ff <= '0;
+            wrenB_ff <= '0;
+        end 
+        else begin 
+            rdenA_ff <= rdenA;
+            wrenA_ff <= wrenA;
+            datain_ff <= datain;
+            rdenB_ff <= rdenB;
+            wrenB_ff <= wrenB;
+        end
+    end
+
     // Propogate enable
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
-        if (!rst_n)
+        if (!rst_n) 
             En <= 0;
-        else if (|rdenA & rdenB)
+        else if (|rdenA_ff & rdenB_ff) 
             En <= 1;
-        else
+        else 
             En <= 0;
     end
     
@@ -100,10 +128,10 @@ module minilab1(
     mac mac(
         .clk(CLOCK_50),
         .rst_n(rst_n),
-        .En(En),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
+        .En(En_ff),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
         .Clr(Clr),
-        .Ain(Ain),
-        .Bin(Bin),
+        .Ain(Ain_ff),
+        .Bin(Bin_ff),
         .Cout(Cout));
 
     // Instantiate the memory module
@@ -118,6 +146,19 @@ module minilab1(
         .waitrequest(waitrequest)       // Busy signal to indicate logic is processing
     );
 
+    // Pipeline memory outputs
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin 
+        if (!rst_n) begin 
+            readdata_ff <= '0;
+            readdatavalid_ff <= '0;
+            waitrequest_ff <= '0;
+        end
+        else begin
+            readdata_ff <= readdata;
+            readdatavalid_ff <= readdatavalid;
+            waitrequest_ff <= waitrequest;
+        end
+    end
 
     // Generate FIFOs for the 8x8 A input
     genvar k;
@@ -126,15 +167,16 @@ module minilab1(
     begin: A_fifo_gen
         fifo A_fifo(
             // Inputs
-            .clk(CLOCK_50),
-            .rst_n(rst_n),
-            .rden(rdenA[k]),
-            .wren(wrenA[k]),
-            .i_data(datain),
-            //Outputs
-            .o_data(dataoutA[k]),
-            .full(fullA[k]),
-            .empty(emptyA[k])
+            .aclr(aclr),
+            .data(datain_ff),
+            .rdclk(CLOCK_50),
+            .rdreq(rdenA_ff[k]),
+            .wrclk(CLOCK_50),
+            .wrreq(wrenA_ff[k]),
+            // Outputs
+            .q(dataoutA[k]),
+            .rdempty(emptyA[k]),
+            .wrfull(fullA[k])
         );
     end
     endgenerate
@@ -142,16 +184,17 @@ module minilab1(
     generate
         begin: B_fifo_gen
             fifo B_fifo(
-                //Inputs
-                .clk(CLOCK_50),
-                .rst_n(rst_n),
-                .rden(rdenB),
-                .wren(wrenB),
-                .i_data(datain),
-                //Outputs
-                .o_data(dataoutB),
-                .full(fullB),
-                .empty(emptyB)
+                // Inputs
+                .aclr(aclr),
+                .data(datain_ff),
+                .rdclk(CLOCK_50),
+                .rdreq(rdenB_ff),
+                .wrclk(CLOCK_50),
+                .wrreq(wrenB_ff),
+                // Outputs
+                .q(dataoutB),
+                .rdempty(emptyB),
+                .wrfull(fullB)
             );
         end
     endgenerate
@@ -184,6 +227,8 @@ module minilab1(
         else if (reading) 
             column <= column + 1;
         else if (&emptyA) 
+            column <= '0;
+        else if (Exec)
             column <= '0;
     end
 
@@ -237,7 +282,6 @@ module minilab1(
         end
     end
 
-    logic Exec;
     always_ff @(posedge CLOCK_50, negedge rst_n) begin
         if(!rst_n)
             Exec <= 0;
@@ -263,6 +307,7 @@ module minilab1(
         Bin = '0;
         fillB = 0;
         startExec = 0;
+        aclr = 0;
 
         case(state)
             IDLE:
@@ -270,18 +315,19 @@ module minilab1(
                 next_state = READ;
                 rdenA = '0;
                 rdenB = 0;
+                aclr = 1;
             end
             READ:
             begin
                 read = 1'b1;
                 // Need to check for data_valid signal from memory before filling the FIFO
-                if (readdatavalid & Exec) begin                                 // Refill B 
+                if (readdatavalid_ff & Exec) begin                                 // Refill B 
                     next_state = FILLB;
                     next_cout = 1;
                 end
-                else if (readdatavalid & !fullB)            // Fill B 
+                else if (readdatavalid_ff & !fullB)            // Fill B 
                     next_state = FILLB;
-                else if (readdatavalid & !(allFull))        // Fill A
+                else if (readdatavalid_ff & !(allFull))        // Fill A
                     next_state = FILLA;      
             end
             FILLB:
@@ -307,7 +353,7 @@ module minilab1(
             end
             FILLA:
             begin
-                if(!allFull & ~waitrequest)
+                if(!allFull & ~waitrequest_ff)
                 begin
                     reading = 1;
                     wrenA |= (1 << (address-1));
@@ -321,7 +367,7 @@ module minilab1(
                         next_state = READ;
                     end
                 end
-                else if (allFull & ~waitrequest) begin
+                else if (allFull & ~waitrequest_ff) begin
                     wrenA = '0;
                     next_state = EXEC;
 
@@ -355,6 +401,24 @@ module minilab1(
             end
         endcase
     end
+
+always_ff @(posedge CLOCK_50, negedge rst_n) begin 
+    if (!rst_n) begin
+        Ain_ff <= '0; 
+        Bin_ff <= '0;
+        En_ff <= '0;
+    end
+    else if (Clr) begin
+        Ain_ff <= '0; 
+        Bin_ff <= '0;
+        En_ff <= '0;
+    end 
+    else begin
+        Ain_ff <= Ain; 
+        Bin_ff <= Bin;
+        En_ff <= En;
+    end
+end
 
     // Implement the LED display
 always @(*) begin

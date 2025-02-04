@@ -145,38 +145,38 @@ module minilab_test();
         
         $display("Test 4: checking Cout values\n///////////////////////////////////////////////////////////////////");
         @(minilab1.state == 6);        
-        repeat(3)@(posedge CLOCK_50);
+        repeat(6)@(posedge CLOCK_50);
 
         if (minilab1.cout_reg_00 !== 780) begin
-            $display("Expected c00: 588, actual: %d", minilab1.cout_reg_00);
+            $display("Expected c00: 780, actual: %d", minilab1.cout_reg_00);
             $stop();
         end
         if (minilab1.cout_reg_01 !== 1356) begin
-            $display("Expected c01: 1036, actual: %d", minilab1.cout_reg_01);
+            $display("Expected c01: 1356, actual: %d", minilab1.cout_reg_01);
             $stop();
         end
         if (minilab1.cout_reg_02 !== 1932) begin
-            $display("Expected c02: 1484, actual: %d", minilab1.cout_reg_02);
+            $display("Expected c02: 1932, actual: %d", minilab1.cout_reg_02);
             $stop();
         end
         if (minilab1.cout_reg_03 !== 2508) begin
-            $display("Expected c03: 1932, actual: %d", minilab1.cout_reg_03);
+            $display("Expected c03: 2508, actual: %d", minilab1.cout_reg_03);
             $stop();
         end
         if (minilab1.cout_reg_04 !== 3084) begin
-            $display("Expected c04: 2380, actual: %d", minilab1.cout_reg_04);
+            $display("Expected c04: 3084, actual: %d", minilab1.cout_reg_04);
             $stop();
         end
         if (minilab1.cout_reg_05 !== 3660) begin
-            $display("Expected c05: 2828, actual: %d", minilab1.cout_reg_05);
+            $display("Expected c05: 3660, actual: %d", minilab1.cout_reg_05);
             $stop();
         end
         if (minilab1.cout_reg_06 !== 4236) begin
-            $display("Expected c06: 3276, actual: %d", minilab1.cout_reg_06);
+            $display("Expected c06: 4236, actual: %d", minilab1.cout_reg_06);
             $stop();
         end
         if (minilab1.cout_reg_07 !== 4812) begin
-            $display("Expected c07: 3724, actual: %d", minilab1.cout_reg_07);
+            $display("Expected c07: 4812, actual: %d", minilab1.cout_reg_07);
             $stop();
         end
         

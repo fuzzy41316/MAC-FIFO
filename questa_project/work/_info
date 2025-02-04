@@ -57,6 +57,72 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s12c _opt1
 R1
 R0
@@ -69,10 +135,10 @@ R1
 cModel Technology
 Z2 dI:/ece554/ECE554_Minilab1/questa_project
 T_opt
-!s110 1738700414
-VJlW6^XzA=gLRRB9]7AoP93
+!s110 1738708967
+V]>M4ZP8_BjePa7NiGdh3N3
 Z3 04 12 4 work minilab_test fast 0
-=30-4cd71794da93-67a2767c-177-33d0
+=70-4cd71794da93-67a297e5-3ae-33d0
 R1
 Z4 !s12b OEM100
 !s124 OEM10U16 
@@ -80,7 +146,6 @@ o-quiet -auto_acc_if_foreign -work work -L C:/intelFPGA_lite/23.1std/questa_fse/
 Z5 tCvgOpt 0
 n@_opt
 Z6 OL;O;2023.3;77
-R2
 T_opt1
 !s110 1738694144
 VW?QO11oX:IIWZHG5kc57G3
@@ -94,34 +159,9 @@ R5
 n@_opt1
 R6
 R2
-vfifo
-Z7 2I:/ece554/ECE554_Minilab1/fifo.sv
-Z8 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z9 !s110 1738700669
-!i10b 1
-!s100 ;a0fz_?d@6ecAoEiS=R>O1
-II]gGjH4Vi07f4[;aAhiYz0
-S1
-R2
-w1738695551
-Z10 8I:/ece554/ECE554_Minilab1/fifo.sv
-Z11 FI:/ece554/ECE554_Minilab1/fifo.sv
-!i122 101
-Z12 L0 1 86
-Z13 VDg1SIo80bB@j0V0VzS_@n1
-Z14 OL;L;2023.3;77
-r1
-!s85 0
-31
-!s108 1738700669.000000
-Z15 !s107 I:/ece554/ECE554_Minilab1/fifo.sv|
-Z16 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/fifo.sv|
-!i113 0
-Z17 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R5
 vFIFO
-R7
-R8
+2I:/ece554/ECE554_Minilab1/fifo.sv
+Z7 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 !s110 1738695137
 !i10b 1
 !s100 V16_Yim4<3JClP?U1BGef2
@@ -129,73 +169,121 @@ I:6=oBD=P5f^GmIzVMfWS;1
 S1
 R2
 w1738695134
-R10
-R11
+8I:/ece554/ECE554_Minilab1/fifo.sv
+FI:/ece554/ECE554_Minilab1/fifo.sv
 !i122 52
-R12
-R13
-R14
+L0 1 86
+Z8 VDg1SIo80bB@j0V0VzS_@n1
+Z9 OL;L;2023.3;77
 r1
 !s85 0
 31
 !s108 1738695136.000000
-R15
-R16
+!s107 I:/ece554/ECE554_Minilab1/fifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/fifo.sv|
 !i113 0
-R17
+Z10 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R5
 n@f@i@f@o
+vfifo
+2I:/ece554/ECE554_Minilab1/fifo.v
+Z11 !s110 1738705774
+!i10b 1
+!s100 ga8HnIAZ?X6=S;8ene@@d3
+IA7RYO<SHU[Bn<dh=U61NO1
+R2
+w1738703622
+8I:/ece554/ECE554_Minilab1/fifo.v
+FI:/ece554/ECE554_Minilab1/fifo.v
+!i122 137
+L0 40 67
+R8
+R9
+r1
+!s85 0
+31
+Z12 !s108 1738705774.000000
+!s107 I:/ece554/ECE554_Minilab1/fifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ece554/ECE554_Minilab1/fifo.v|
+!i113 0
+Z13 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
 vLPM_ADD_SUB_ip
 2I:/ece554/ECE554_Minilab1/LPM_ADD_SUB_ip.v
-Z18 !s110 1738694127
+R11
 !i10b 1
 !s100 5_;ji2RNlcflP?5FOTgf<3
 I:oBhSW0_zVKQZ?F^agJh[3
 R2
-Z19 w1738019265
+Z14 w1738019265
 8I:/ece554/ECE554_Minilab1/LPM_ADD_SUB_ip.v
 FI:/ece554/ECE554_Minilab1/LPM_ADD_SUB_ip.v
-!i122 42
+!i122 138
 L0 40 36
-R13
-R14
+R8
+R9
 r1
 !s85 0
 31
-!s108 1738694126.000000
+R12
 !s107 I:/ece554/ECE554_Minilab1/LPM_ADD_SUB_ip.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ece554/ECE554_Minilab1/LPM_ADD_SUB_ip.v|
 !i113 0
-Z20 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R13
 R5
 n@l@p@m_@a@d@d_@s@u@b_ip
 vLPM_MULT_ip
 2I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v
-R18
+!s110 1738705775
 !i10b 1
 !s100 Pg6zbN@^hc@6WS^[fHie;0
 IBC`;J0H;T6`lYGTD3B1KC0
 R2
-R19
+R14
 8I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v
 FI:/ece554/ECE554_Minilab1/LPM_MULT_ip.v
-!i122 43
+!i122 139
 L0 40 31
-R13
-R14
+R8
+R9
 r1
 !s85 0
 31
-!s108 1738694127.000000
+!s108 1738705775.000000
 !s107 I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v|
 !i113 0
-R20
+R13
 R5
 n@l@p@m_@m@u@l@t_ip
-vMAC
-Z21 2I:/ece554/ECE554_Minilab1/mac.sv
+vmac
+Z15 2I:/ece554/ECE554_Minilab1/mac.sv
+R7
+!s110 1738708963
+!i10b 1
+!s100 Nm9De_AW`K1:eHzDnWANb2
+I4Y50b[7k1FU7g[>`j[^0j0
+S1
+R2
+w1738708958
+Z16 8I:/ece554/ECE554_Minilab1/mac.sv
+Z17 FI:/ece554/ECE554_Minilab1/mac.sv
+!i122 160
+L0 1 46
 R8
+R9
+r1
+!s85 0
+31
+!s108 1738708962.000000
+Z18 !s107 I:/ece554/ECE554_Minilab1/mac.sv|
+Z19 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/mac.sv|
+!i113 0
+R10
+R5
+vMAC
+R15
+R7
 !s110 1738641693
 !i10b 1
 !s100 A]kkW:Q;z3013>?ED9QM?1
@@ -203,50 +291,25 @@ I416R4]BlzAUNP@B4f3OZ70
 S1
 R2
 w1738641666
-Z22 8I:/ece554/ECE554_Minilab1/mac.sv
-Z23 FI:/ece554/ECE554_Minilab1/mac.sv
+R16
+R17
 !i122 9
-Z24 L0 1 74
-R13
-R14
+Z20 L0 1 74
+R8
+R9
 r1
 !s85 0
 31
 !s108 1738641693.000000
-Z25 !s107 I:/ece554/ECE554_Minilab1/mac.sv|
-Z26 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/mac.sv|
+R18
+R19
 !i113 0
-R17
+R10
 R5
 n@m@a@c
-vmac
-R21
-R8
-!s110 1738700670
-!i10b 1
-!s100 T8jA;f>O2fn>4lVh9O7:`0
-I5jR0CBR]AY=a^?nBf2U[n1
-S1
-R2
-w1738621983
-R22
-R23
-!i122 102
-L0 1 36
-R13
-R14
-r1
-!s85 0
-31
-!s108 1738700670.000000
-R25
-R26
-!i113 0
-R17
-R5
 vmac_pipelined
-R21
-R8
+R15
+R7
 !s110 1738700884
 !i10b 1
 !s100 CTaC6V9`>4UkFBHfYd_XB3
@@ -254,114 +317,114 @@ IC2TO?4CmZ<E5^bN:bAblK3
 S1
 R2
 w1738700879
-R22
-R23
+R16
+R17
 !i122 103
-R24
-R13
-R14
+R20
+R8
+R9
 r1
 !s85 0
 31
 !s108 1738700884.000000
-R25
-R26
+R18
+R19
 !i113 0
-R17
+R10
 R5
 vmem_wrapper
 2I:/ece554/ECE554_Minilab1/memory.v
-!s110 1738700667
+!s110 1738705772
 !i10b 1
 !s100 M3jiLfB;XFR[V<[F]GN6V1
 IV2Lj56zfEzd[A_Bzfb1?J3
 R2
-Z27 w1738359987
+Z21 w1738359987
 8I:/ece554/ECE554_Minilab1/memory.v
 FI:/ece554/ECE554_Minilab1/memory.v
-!i122 97
+!i122 133
 L0 2 66
-R13
-R14
+R8
+R9
 r1
 !s85 0
 31
-Z28 !s108 1738700667.000000
+!s108 1738705772.000000
 !s107 I:/ece554/ECE554_Minilab1/memory.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ece554/ECE554_Minilab1/memory.v|
 !i113 0
-R20
+R13
 R5
 vminilab1
 2I:/ece554/ECE554_Minilab1/minilab1.sv
-R8
-Z29 !s110 1738700668
+R7
+!s110 1738708865
 !i10b 1
-!s100 nELEnfEo=J]HiJV]=fk752
-I==XJ5Y3=T01N4[`R5JQ6=2
+!s100 GaKE6E:Yi7?n=baeoO=141
+I2R63]`UN`W1FImW]6=]O61
 S1
 R2
-w1738699828
+w1738708826
 8I:/ece554/ECE554_Minilab1/minilab1.sv
 FI:/ece554/ECE554_Minilab1/minilab1.sv
-!i122 99
-L0 1 515
-R13
-R14
+!i122 157
+L0 1 579
+R8
+R9
 r1
 !s85 0
 31
-Z30 !s108 1738700668.000000
+!s108 1738708865.000000
 !s107 I:/ece554/ECE554_Minilab1/minilab1.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/minilab1.sv|
 !i113 0
-R17
+R10
 R5
 vminilab_test
 2I:/ece554/ECE554_Minilab1/minilab_test.sv
-R8
-R29
+R7
+!s110 1738708911
 !i10b 1
-!s100 UeGK5C;6j`0:X_`YI9aVz3
-IoG0I2z]ida?bANak`DKVz3
+!s100 m0JE]X@b:nDA12`Cjl5nG0
+I>_hG^H;S5zzIT`K<1XE?W0
 S1
 R2
-w1738700406
+w1738708907
 8I:/ece554/ECE554_Minilab1/minilab_test.sv
 FI:/ece554/ECE554_Minilab1/minilab_test.sv
-!i122 98
+!i122 159
 L0 2 196
-R13
-R14
+R8
+R9
 r1
 !s85 0
 31
-R28
+!s108 1738708911.000000
 !s107 I:/ece554/ECE554_Minilab1/minilab_test.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554_Minilab1/minilab_test.sv|
 !i113 0
-R17
+R10
 R5
 vrom
 2I:/ece554/ECE554_Minilab1/rom.v
-R9
+!s110 1738705773
 !i10b 1
 !s100 gIjok9nLdKAWK47?alcLX2
 I2_z?R=KT38Hk;4]MUEzD60
 R2
-R27
+R21
 8I:/ece554/ECE554_Minilab1/rom.v
 FI:/ece554/ECE554_Minilab1/rom.v
-!i122 100
+!i122 136
 L0 40 61
-R13
-R14
+R8
+R9
 r1
 !s85 0
 31
-R30
+!s108 1738705773.000000
 !s107 I:/ece554/ECE554_Minilab1/rom.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ece554/ECE554_Minilab1/rom.v|
 !i113 0
-R20
+R13
 R5
