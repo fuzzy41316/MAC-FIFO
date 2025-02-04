@@ -1,5 +1,5 @@
 Analysis & Synthesis report for minilab1
-Mon Feb  3 19:30:15 2025
+Mon Feb  3 20:17:14 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -151,7 +151,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Feb  3 19:30:15 2025          ;
+; Analysis & Synthesis Status     ; Successful - Mon Feb  3 20:17:13 2025          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; minilab1                                       ;
 ; Top-level Entity Name           ; minilab1                                       ;
@@ -426,7 +426,9 @@ Encoding Type:  One-Hot
 ; state~4                                                                                                             ; Lost fanout        ;
 ; state~5                                                                                                             ; Lost fanout        ;
 ; state~6                                                                                                             ; Lost fanout        ;
-; mem_wrapper:memory|readdatavalid                                                                                    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg                ; Lost fanout        ;
+; mem_wrapper:memory|waitrequest                                                                                      ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg             ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg             ; Lost fanout        ;
 ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg             ; Lost fanout        ;
@@ -443,10 +445,8 @@ Encoding Type:  One-Hot
 ; fifo:A_fifo_gen[6].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg             ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg             ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg             ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg                ; Lost fanout        ;
-; mem_wrapper:memory|waitrequest                                                                                      ; Lost fanout        ;
 ; address[0..31]                                                                                                      ; Lost fanout        ;
+; mem_wrapper:memory|readdatavalid                                                                                    ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb                  ; Lost fanout        ;
 ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; Lost fanout        ;
@@ -464,6 +464,18 @@ Encoding Type:  One-Hot
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb                  ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb                  ; Lost fanout        ;
 ; mem_wrapper:memory|delay_counter[0..3]                                                                              ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[1]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a0    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a1    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[2]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[2]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[3]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3]                                ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3    ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0]                             ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0]                             ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1]                             ; Lost fanout        ;
@@ -560,18 +572,6 @@ Encoding Type:  One-Hot
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3]                             ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2 ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3 ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[1]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a0    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a1    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[2]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[2]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[3]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3]                                ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3    ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0,1]                   ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0 ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1 ; Lost fanout        ;
@@ -621,6 +621,13 @@ Encoding Type:  One-Hot
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[2,3]                   ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2 ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3 ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb                     ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb                     ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4       ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2    ; Lost fanout        ;
+; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3    ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
 ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
 ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
@@ -629,13 +636,6 @@ Encoding Type:  One-Hot
 ; fifo:A_fifo_gen[5].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
 ; fifo:A_fifo_gen[6].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
 ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb                     ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb                     ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4       ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2    ; Lost fanout        ;
-; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3    ; Lost fanout        ;
 ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2    ; Lost fanout        ;
 ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2    ; Lost fanout        ;
 ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2    ; Lost fanout        ;
@@ -665,13 +665,18 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                           ; Reason for Removal ; Registers Removed due to This Register                                                                               ;
 +---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------------------+
-; state~4                                                                                                 ; Lost Fanouts       ; mem_wrapper:memory|readdatavalid,                                                                                    ;
+; state~4                                                                                                 ; Lost Fanouts       ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg,                ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg,             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg,             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg,             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg,             ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg,                ;
-;                                                                                                         ;                    ; address[0],                                                                                                          ;
+;                                                                                                         ;                    ; address[0], mem_wrapper:memory|readdatavalid,                                                                        ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[1],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a0,    ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a1,    ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0],                             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0],                             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1],                             ;
@@ -696,40 +701,24 @@ Encoding Type:  One-Hot
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3],                             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3, ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[1],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[1],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a0,    ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a1,    ;
 ;                                                                                                         ;                    ; mac_count[2],                                                                                                        ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4,    ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4,    ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0,    ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb,                     ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                     ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1,    ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4,       ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4,    ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4,    ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2,       ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0],                        ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[1],                        ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[2],                        ;
 ;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[3],                        ;
-;                                                                                                         ;                    ; state.IDLE, state.FILLA, state.FILLB, mem_wrapper:memory|state.WAIT,                                                 ;
-;                                                                                                         ;                    ; mem_wrapper:memory|state.RESPOND                                                                                     ;
-; state~5                                                                                                 ; Lost Fanouts       ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg,                ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb,                  ;
+;                                                                                                         ;                    ; state.IDLE, state.FILLA, state.FILLB, mem_wrapper:memory|state.RESPOND                                               ;
+; state~6                                                                                                 ; Lost Fanouts       ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb,                  ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                  ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb,                  ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                  ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb,                  ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                  ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[2],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[2],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[3],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3],                                ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2,    ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3,    ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0],                     ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[1],                     ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0, ;
@@ -747,20 +736,9 @@ Encoding Type:  One-Hot
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[3],                     ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3, ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0],                     ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[1],                     ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0, ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1, ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[2],                     ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[3],                     ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2, ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3, ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2,    ;
-;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3,    ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2,    ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[1].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2,    ;
-;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2,    ;
-;                                                                                                         ;                    ; state.EXEC, state.DONE                                                                                               ;
+;                                                                                                         ;                    ; state.EXEC                                                                                                           ;
 ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_lsb_mux_reg ; Lost Fanouts       ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg,             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[0],                             ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[0],                             ;
@@ -845,6 +823,16 @@ Encoding Type:  One-Hot
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|parity4     ;
+; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb      ; Lost Fanouts       ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                  ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0],                     ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[1],                     ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a0, ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a1, ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[2],                     ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[3],                     ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2, ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3, ;
+;                                                                                                         ;                    ; fifo:A_fifo_gen[2].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2     ;
 ; fifo:A_fifo_gen[3].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_lsb_aeb      ; Lost Fanouts       ; fifo:A_fifo_gen[3].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdemp_eq_comp_msb_aeb,                  ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[3].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[0],                     ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[3].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|delayed_wrptr_g[1],                     ;
@@ -895,13 +883,21 @@ Encoding Type:  One-Hot
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3, ;
 ;                                                                                                         ;                    ; fifo:A_fifo_gen[7].A_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|parity2     ;
+; state~5                                                                                                 ; Lost Fanouts       ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrfull_eq_comp_msb_mux_reg,                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[2],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[2],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|rdptr_g[3],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|wrptr_g[3],                                ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a2,    ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_6cc:wrptr_g1p|counter3a3,    ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a2,    ;
+;                                                                                                         ;                    ; fifo:B_fifo_gen.B_fifo|dcfifo:dcfifo_component|dcfifo_e0q1:auto_generated|a_graycounter_au6:rdptr_g1p|counter1a3     ;
 ; address[1]                                                                                              ; Lost Fanouts       ; address[2], address[3], address[4], address[5]                                                                       ;
 ; mem_wrapper:memory|readdata[63]                                                                         ; Lost Fanouts       ; mem_wrapper:memory|read_address[3], mem_wrapper:memory|read_address[2],                                              ;
 ;                                                                                                         ;                    ; mem_wrapper:memory|read_address[1]                                                                                   ;
+; mem_wrapper:memory|waitrequest                                                                          ; Lost Fanouts       ; state.READ, mem_wrapper:memory|state.WAIT, mem_wrapper:memory|state.IDLE                                             ;
 ; mem_wrapper:memory|delay_counter[3]                                                                     ; Lost Fanouts       ; mem_wrapper:memory|delay_counter[2], mem_wrapper:memory|delay_counter[1],                                            ;
 ;                                                                                                         ;                    ; mem_wrapper:memory|delay_counter[0]                                                                                  ;
-; mem_wrapper:memory|waitrequest                                                                          ; Lost Fanouts       ; state.READ, mem_wrapper:memory|state.IDLE                                                                            ;
-; state~6                                                                                                 ; Lost Fanouts       ; state.WAIT                                                                                                           ;
 +---------------------------------------------------------------------------------------------------------+--------------------+----------------------------------------------------------------------------------------------------------------------+
 
 
@@ -930,8 +926,7 @@ Encoding Type:  One-Hot
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |minilab1|rdenA[3]                            ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |minilab1|wrenA[7]                            ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |minilab1|wrenA[2]                            ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |minilab1|Selector0                           ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; No         ; |minilab1|Selector4                           ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |minilab1|Selector0                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 
 
@@ -2361,7 +2356,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Feb  3 19:29:57 2025
+    Info: Processing started: Mon Feb  3 20:16:55 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Minilab1 -c minilab1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -2387,12 +2382,19 @@ Info (12021): Found 1 design units, including 1 entities, in source file /ece554
 Info (12021): Found 1 design units, including 1 entities, in source file /ece554/ece554_minilab1/fifo.v
     Info (12023): Found entity 1: fifo File: I:/ece554/ECE554_Minilab1/fifo.v Line: 40
 Info (12127): Elaborating entity "minilab1" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(78): object "cout_reg" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 78
-Warning (10230): Verilog HDL assignment warning at minilab1.sv(177): truncated value with size 32 to match size of target (3) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 177
-Warning (10230): Verilog HDL assignment warning at minilab1.sv(195): truncated value with size 32 to match size of target (3) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 195
-Warning (10230): Verilog HDL assignment warning at minilab1.sv(260): truncated value with size 32 to match size of target (8) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 260
-Warning (10230): Verilog HDL assignment warning at minilab1.sv(304): truncated value with size 32 to match size of target (8) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 304
-Info (10264): Verilog HDL Case Statement information at minilab1.sv(217): all case item expressions in this case statement are onehot File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 217
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(78): object "cout_reg_00" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 78
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(79): object "cout_reg_01" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 79
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(80): object "cout_reg_02" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 80
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(81): object "cout_reg_03" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 81
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(82): object "cout_reg_04" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 82
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(83): object "cout_reg_05" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 83
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(84): object "cout_reg_06" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 84
+Warning (10036): Verilog HDL or VHDL warning at minilab1.sv(85): object "cout_reg_07" assigned a value but never read File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 85
+Warning (10230): Verilog HDL assignment warning at minilab1.sv(190): truncated value with size 32 to match size of target (3) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 190
+Warning (10230): Verilog HDL assignment warning at minilab1.sv(208): truncated value with size 32 to match size of target (3) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 208
+Warning (10230): Verilog HDL assignment warning at minilab1.sv(298): truncated value with size 32 to match size of target (8) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 298
+Warning (10230): Verilog HDL assignment warning at minilab1.sv(342): truncated value with size 32 to match size of target (8) File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 342
+Info (10264): Verilog HDL Case Statement information at minilab1.sv(255): all case item expressions in this case statement are onehot File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 255
 Warning (10034): Output port "HEX0" at minilab1.sv(9) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 9
 Warning (10034): Output port "HEX1" at minilab1.sv(10) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 10
 Warning (10034): Output port "HEX2" at minilab1.sv(11) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 11
@@ -2400,7 +2402,7 @@ Warning (10034): Output port "HEX3" at minilab1.sv(12) has no driver File: I:/ec
 Warning (10034): Output port "HEX4" at minilab1.sv(13) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 13
 Warning (10034): Output port "HEX5" at minilab1.sv(14) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 14
 Warning (10034): Output port "LEDR" at minilab1.sv(17) has no driver File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 17
-Info (12128): Elaborating entity "mac" for hierarchy "mac:mac" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 98
+Info (12128): Elaborating entity "mac" for hierarchy "mac:mac" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 111
 Info (12128): Elaborating entity "LPM_MULT_ip" for hierarchy "mac:mac|LPM_MULT_ip:mult" File: I:/ece554/ECE554_Minilab1/mac.sv Line: 14
 Info (12128): Elaborating entity "lpm_mult" for hierarchy "mac:mac|LPM_MULT_ip:mult|lpm_mult:lpm_mult_component" File: I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v Line: 60
 Info (12130): Elaborated megafunction instantiation "mac:mac|LPM_MULT_ip:mult|lpm_mult:lpm_mult_component" File: I:/ece554/ECE554_Minilab1/LPM_MULT_ip.v Line: 60
@@ -2426,7 +2428,7 @@ Info (12133): Instantiated megafunction "mac:mac|LPM_ADD_SUB_ip:accum|lpm_add_su
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_uih.tdf
     Info (12023): Found entity 1: add_sub_uih File: I:/ece554/ECE554_Minilab1/quartus_project/db/add_sub_uih.tdf Line: 23
 Info (12128): Elaborating entity "add_sub_uih" for hierarchy "mac:mac|LPM_ADD_SUB_ip:accum|lpm_add_sub:LPM_ADD_SUB_component|add_sub_uih:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_add_sub.tdf Line: 119
-Info (12128): Elaborating entity "mem_wrapper" for hierarchy "mem_wrapper:memory" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 110
+Info (12128): Elaborating entity "mem_wrapper" for hierarchy "mem_wrapper:memory" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 123
 Warning (10230): Verilog HDL assignment warning at memory.v(44): truncated value with size 32 to match size of target (5) File: I:/ece554/ECE554_Minilab1/memory.v Line: 44
 Warning (10230): Verilog HDL assignment warning at memory.v(52): truncated value with size 32 to match size of target (4) File: I:/ece554/ECE554_Minilab1/memory.v Line: 52
 Info (12128): Elaborating entity "rom" for hierarchy "mem_wrapper:memory|rom:memory" File: I:/ece554/ECE554_Minilab1/memory.v Line: 28
@@ -2450,7 +2452,7 @@ Info (12133): Instantiated megafunction "mem_wrapper:memory|rom:memory|altsyncra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_tdg1.tdf
     Info (12023): Found entity 1: altsyncram_tdg1 File: I:/ece554/ECE554_Minilab1/quartus_project/db/altsyncram_tdg1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_tdg1" for hierarchy "mem_wrapper:memory|rom:memory|altsyncram:altsyncram_component|altsyncram_tdg1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:A_fifo_gen[0].A_fifo" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 129
+Info (12128): Elaborating entity "fifo" for hierarchy "fifo:A_fifo_gen[0].A_fifo" File: I:/ece554/ECE554_Minilab1/minilab1.sv Line: 142
 Info (12128): Elaborating entity "dcfifo" for hierarchy "fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component" File: I:/ece554/ECE554_Minilab1/fifo.v Line: 89
 Info (12130): Elaborated megafunction instantiation "fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component" File: I:/ece554/ECE554_Minilab1/fifo.v Line: 89
 Info (12133): Instantiated megafunction "fifo:A_fifo_gen[0].A_fifo|dcfifo:dcfifo_component" with the following parameter: File: I:/ece554/ECE554_Minilab1/fifo.v Line: 89
@@ -2714,10 +2716,10 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
 Info (21057): Implemented 70 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 52 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 233 warnings
-    Info: Peak virtual memory: 4843 megabytes
-    Info: Processing ended: Mon Feb  3 19:30:15 2025
-    Info: Elapsed time: 00:00:18
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 240 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Mon Feb  3 20:17:14 2025
+    Info: Elapsed time: 00:00:19
     Info: Total CPU time (on all processors): 00:00:16
 
 

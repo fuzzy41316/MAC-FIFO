@@ -75,7 +75,20 @@ module minilab1(
     logic En;
     logic [7:0] Bin;
     logic [23:0] Cout;
-    reg [23:0] cout_reg [7:0];
+    logic [23:0] cout_reg_00;
+    logic [23:0] cout_reg_01;
+    logic [23:0] cout_reg_02;
+    logic [23:0] cout_reg_03;
+    logic [23:0] cout_reg_04;
+    logic [23:0] cout_reg_05;
+    logic [23:0] cout_reg_06;
+    logic [23:0] cout_reg_07;
+
+
+
+
+
+
     reg [2:0] mac_count;        // TODO: increment the mac_count depending on the step you're on
                                 // i.e., first Cout, then second Cout, then third Cout.
 
@@ -195,6 +208,31 @@ module minilab1(
             mac_count <= mac_count + 1;
     end
 
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n) begin
+            cout_reg_00 <= '0;
+            cout_reg_01 <= '0;
+            cout_reg_02 <= '0;
+            cout_reg_03 <= '0;
+            cout_reg_04 <= '0;
+            cout_reg_05 <= '0;
+            cout_reg_06 <= '0;
+            cout_reg_07 <= '0;
+        end
+        else begin
+            case(mac_count)
+                3'd0: cout_reg_00 <= Cout;
+                3'd1: cout_reg_01 <= Cout;
+                3'd2: cout_reg_02 <= Cout;
+                3'd3: cout_reg_03 <= Cout;
+                3'd4: cout_reg_04 <= Cout;
+                3'd5: cout_reg_05 <= Cout;
+                3'd6: cout_reg_06 <= Cout;
+                3'd7: cout_reg_07 <= Cout;
+            endcase
+        end
+    end
+
     // State machine
     always_comb
     begin
@@ -222,8 +260,8 @@ module minilab1(
                 rdenB = 0;
                 aclr = 1;
                 Clr = 1;
-                for (int i = 0; i < 8; i++)
-                    cout_reg[i] = '0;
+                //for (int i = 0; i < 8; i++)
+                //    cout_reg[i] = '0;
             end
             READ:
             begin
@@ -287,7 +325,7 @@ module minilab1(
                 
                 // When the current A FIFO is empty, move to the next cout for MAC
                 if (emptyA[mac_count]) begin
-                    cout_reg[mac_count] = Cout;     // Output from mac is a wire, need to store that output in a register
+                    //cout_reg[mac_count] = Cout;     // Output from mac is a wire, need to store that output in a register
                     Clr = 1;
                     next_cout = 1;
 
@@ -322,9 +360,11 @@ module minilab1(
             // DONE STATE
             default:
             begin
-                // TODO
-
+                next_state = DONE;
             end
         endcase
     end
+
+    // Implement the LED display
+
 endmodule

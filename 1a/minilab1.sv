@@ -22,7 +22,24 @@ module minilab1(
 	//////////// SW //////////
 	input 		     [9:0]		SW
 );
-    
+    parameter HEX_0 = 7'b1000000;		// zero
+    parameter HEX_1 = 7'b1111001;		// one
+    parameter HEX_2 = 7'b0100100;		// two
+    parameter HEX_3 = 7'b0110000;		// three
+    parameter HEX_4 = 7'b0011001;		// four
+    parameter HEX_5 = 7'b0010010;		// five
+    parameter HEX_6 = 7'b0000010;		// six
+    parameter HEX_7 = 7'b1111000;		// seven
+    parameter HEX_8 = 7'b0000000;		// eight
+    parameter HEX_9 = 7'b0011000;		// nine
+    parameter HEX_10 = 7'b0001000;	// ten
+    parameter HEX_11 = 7'b0000011;	// eleven
+    parameter HEX_12 = 7'b1000110;	// twelve
+    parameter HEX_13 = 7'b0100001;	// thirteen
+    parameter HEX_14 = 7'b0000110;	// fourteen
+    parameter HEX_15 = 7'b0001110;	// fifteen
+    parameter OFF   = 7'b1111111;		// all off
+
 
     // Internal wires
     /* SHARED */
@@ -55,17 +72,26 @@ module minilab1(
 
     /* MAC */
     logic [7:0] Ain;
+    logic En;
     logic [7:0] Bin;
     logic [23:0] Cout;
     reg [23:0] cout_reg [7:0];
     reg [2:0] mac_count;        // TODO: increment the mac_count depending on the step you're on
                                 // i.e., first Cout, then second Cout, then third Cout.
+
+    // Propogate enable
+    always_ff @(posedge CLOCK_50, negedge rst_n) begin
+        if (!rst_n)
+            En <= 0;
+        else if (|rdenA & rdenB)
+            En <= 1;
+    end
     
     // Instantiate the MAC module
     mac mac(
         .clk(CLOCK_50),
         .rst_n(rst_n),
-        .En(|rdenA & rdenB),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
+        .En(En),    // Enable MAC when reading from exactly any one A FIFO and exactly one B FIFO
         .Clr(Clr),
         .Ain(Ain),
         .Bin(Bin),
@@ -86,9 +112,9 @@ module minilab1(
 
     // Generate FIFOs for the 8x8 A input
     genvar k;
-    generate
+    generate 
     for (k = 0; k < 8; k++)  
-    begin
+    begin: A_fifo_gen
         fifo A_fifo(
             .aclr(aclr),
             .data(datain),
@@ -105,7 +131,7 @@ module minilab1(
     endgenerate
 
     generate
-        begin
+        begin: B_fifo_gen
             fifo B_fifo(
                 // Inputs
                 .aclr(aclr),
@@ -123,13 +149,13 @@ module minilab1(
     endgenerate
 
     // State and next state logic
-    typedef enum reg [2:0] {READ, FILLA, FILLB, WAIT, EXEC, DONE} state_t;
+    typedef enum reg [2:0] {IDLE, READ, FILLA, FILLB, WAIT, EXEC, DONE} state_t;
     state_t state, next_state;
 
     always_ff @(posedge CLOCK_50, negedge rst_n) 
     begin
         if (!rst_n)
-            state <= READ;
+            state <= IDLE;
         else 
             state <= next_state;
     end
@@ -173,31 +199,32 @@ module minilab1(
     always_comb
     begin
         // Defaults
-        read = '0;
         next_state = state;
+        next_cout = 0;
+        datain = '0;
         reading = 0;
         nextrow = 0;
-        next_cout = 0;
-        Ain = '0;
-        Bin = '0;
+        read = 0;
+        wrenA = '0;
+        wrenB = 0;
+        rdenA = '0;
+        rdenB = 0;
         Clr = 0;
         aclr = 0;
-
-        if (!rst_n)
-        begin
-            // Reset the FIFOs, start filling B first
-            datain = '0;
-            next_state = READ;
-            wrenB = 0;
-            rdenB = 0;
-            wrenA = '0;
-            rdenA = '0;
-            for (integer i = 0; i < 8; i++) 
-                cout_reg[i] = '0;
-            aclr = 1;
-        end
+        Ain = '0;
+        Bin = '0;
 
         case(state)
+            IDLE:
+            begin
+                next_state = READ;
+                rdenA = '0;
+                rdenB = 0;
+                aclr = 1;
+                Clr = 1;
+                for (int i = 0; i < 8; i++)
+                    cout_reg[i] = '0;
+            end
             READ:
             begin
                 read = 1'b1;
