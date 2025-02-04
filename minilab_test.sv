@@ -147,15 +147,48 @@ module minilab_test();
         repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1; 
         
-
-
-
-
-        @(minilab1.state == 5)
-        begin
-            $display("End of test.");
-            $stop();
+        $display("Test 4: checking Cout values\n///////////////////////////////////////////////////////////////////");
+        @(minilab1.state == 5) begin
+            if (minilab1.cout_reg[0] !== 588) begin
+                $display("Expected c00: 588, actual: %d", minilab1.cout_reg[0]);
+                $stop();
+            end
+            if (minilab1.cout_reg[1] !== 1036) begin
+                $display("Expected c01: 1036, actual: %d", minilab1.cout_reg[1]);
+                $stop();
+            end
+            if (minilab1.cout_reg[2] !== 1484) begin
+                $display("Expected c02: 1484, actual: %d", minilab1.cout_reg[2]);
+                $stop();
+            end
+            if (minilab1.cout_reg[3] !== 1932) begin
+                $display("Expected c03: 1932, actual: %d", minilab1.cout_reg[3]);
+                $stop();
+            end
+            if (minilab1.cout_reg[4] !== 2380) begin
+                $display("Expected c04: 2380, actual: %d", minilab1.cout_reg[4]);
+                $stop();
+            end
+            if (minilab1.cout_reg[5] !== 2828) begin
+                $display("Expected c05: 2828, actual: %d", minilab1.cout_reg[5]);
+                $stop();
+            end
+            if (minilab1.cout_reg[6] !== 3276) begin
+                $display("Expected c06: 3276, actual: %d", minilab1.cout_reg[6]);
+                $stop();
+            end
+            if (minilab1.cout_reg[7] !== 3724) begin
+                $display("Expected c07: 3724, actual: %d", minilab1.cout_reg[7]);
+                $stop();
+            end
         end
+
+        for (int i = 0; i < 8; i++) 
+            $display("  Cout%d:%d", i, minilab1.cout_reg[i]);
+        $display("TEST PASSED\n///////////////////////////////////////////////////////////////////");
+
+        $display("End of test.");
+        $stop();
     end
     always #5 CLOCK_50 = ~CLOCK_50;
 endmodule
