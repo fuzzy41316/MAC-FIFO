@@ -4,75 +4,72 @@
 # Compile of mac.sv was successful.
 # Compile of memory.v was successful.
 # Compile of minilab_test.sv was successful.
+# Compile of minilab1.sv was successful.
 # Compile of rom.v was successful.
 # Compile of input_mem.mif failed with 1 errors.
-# Compile of input_mem.mif failed with 1 errors.
+# 9 compiles, 1 failed with 1 error.
 # Compile of minilab1.sv was successful.
-# 10 compiles, 2 failed with 2 errors.
-vsim work.minilab_test -voptargs=+acc
-# vsim work.minilab_test -voptargs="+acc" 
-# Start time: 18:14:37 on Feb 03,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Error: I:/ece554/Minilab1/LPM_MULT_ip.v(52): Module 'lpm_mult' is not defined.
-#  For instance 'lpm_mult_component' at path 'minilab_test.minilab1.mac.mult'
-# ** Error: I:/ece554/Minilab1/LPM_ADD_SUB_ip.v(52): Module 'lpm_add_sub' is not defined.
-#  For instance 'LPM_ADD_SUB_component' at path 'minilab_test.minilab1.mac.accum'
-# ** Error: I:/ece554/Minilab1/rom.v(59): Module 'altsyncram' is not defined.
-#  For instance 'altsyncram_component' at path 'minilab_test.minilab1.memory.memory'
-# ** Error: I:/ece554/Minilab1/fifo.v(75): Module 'dcfifo' is not defined.
-#  For instance 'dcfifo_component' at path 'minilab_test.minilab1.genblk2.B_fifo'
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=4, Warnings=1.
-# Error loading design
-# End time: 18:14:40 on Feb 03,2025, Elapsed time: 0:00:03
-# Errors: 4, Warnings: 4
+# Compile of minilab1.sv was successful.
 vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.minilab_test -voptargs=+ac
-# vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.minilab_test -voptargs="+acc" 
-# Start time: 18:14:56 on Feb 03,2025
+# vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.minilab_test -voptargs="+ac" 
+# Start time: 18:51:13 on Feb 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: I:/ece554/ECE554_Minilab1/memory.v(25): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+# ** Warning: $MODEL_TECH/../intel/verilog/src/altera_mf.v(31792): (vopt-2685) [TFMPC] - Too few port connections for 'DCFIFO_MW'.  Expected 14, found 13.
+# ** Warning: $MODEL_TECH/../intel/verilog/src/altera_mf.v(31792): (vopt-2718) [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=11.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.rom(fast)
+# Loading work.fifo(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# Warning : Address pointed at port A is out of bound!
+# Time: 2545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2545  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# Warning : Address pointed at port A is out of bound!
+# Time: 2825  Instance: minilab_test.minilab1.memory.memory.altsyncram_component.m_default.altsyncram_inst
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout waiting to fill B_FIFO
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(74)
+#    Time: 255030 ps  Iteration: 1  Instance: /minilab_test
+# Break at I:/ece554/ECE554_Minilab1/minilab_test.sv line 74
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
-# ** Warning: I:/ece554/Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Warning: I:/ece554/ECE554_Minilab1/memory.v(25): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
 # Loading sv_std.std
 # Loading work.minilab_test(fast)
-# Loading work.minilab1(fast)
-# Loading work.mac(fast)
-# Loading work.LPM_MULT_ip(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
-# Loading work.LPM_ADD_SUB_ip(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
-# Loading work.mem_wrapper(fast)
 # Loading work.rom(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
 # Loading work.fifo(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
-# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/Minilab1/rom.v(41).
-#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/Minilab1/memory.v Line: 25
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
 run -all
 # ///////////////////////////////////////////////////////////////////
 # Test 1: test that SM fills up all FIFOs
@@ -161,17 +158,1851 @@ run -all
 # ///////////////////////////////////////////////////////////////////
 # Test 4: checking Cout values
 # ///////////////////////////////////////////////////////////////////
-#   c0          0:     588
-#   c0          1:    1036
-#   c0          2:    1484
-#   c0          3:    1932
-#   c0          4:    2380
-#   c0          5:    2828
-#   c0          6:    3276
-#   c0          7:    3724
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(154)
+#    Time: 14300 ps  Iteration: 2  Instance: /minilab_test
+# Break at I:/ece554/ECE554_Minilab1/minilab_test.sv line 154
+# Compile of fifo.v was successful.
+# Compile of LPM_ADD_SUB_ip.v was successful.
+# Compile of LPM_MULT_ip.v was successful.
+# Compile of mac.sv was successful.
+# Compile of memory.v was successful.
+# Compile of minilab_test.sv was successful.
+# Compile of minilab1.sv was successful.
+# Compile of rom.v was successful.
+# Compile of input_mem.mif failed with 1 errors.
+# 9 compiles, 1 failed with 1 error.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: I:/ece554/ECE554_Minilab1/memory.v(25): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.rom(fast)
+# Loading work.fifo(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+# ERROR: write enable isn't high when data is ready
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(84)
+#    Time: 5740 ps  Iteration: 1  Instance: /minilab_test
+# Break at I:/ece554/ECE554_Minilab1/minilab_test.sv line 84
+# Compile of minilab_test.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: I:/ece554/ECE554_Minilab1/memory.v(25): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.rom(fast)
+# Loading work.fifo(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout waiting to fill A_FIFOs
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(112)
+#    Time: 255845 ps  Iteration: 1  Instance: /minilab_test
+# Break at I:/ece554/ECE554_Minilab1/minilab_test.sv line 112
+# Compile of fifo.v was successful.
+# Compile of LPM_ADD_SUB_ip.v was successful.
+# Compile of LPM_MULT_ip.v was successful.
+# Compile of mac.sv was successful.
+# Compile of memory.v was successful.
+# Compile of minilab_test.sv was successful.
+# Compile of minilab1.sv was successful.
+# Compile of rom.v was successful.
+# Compile of input_mem.mif failed with 1 errors.
+# 9 compiles, 1 failed with 1 error.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: I:/ece554/ECE554_Minilab1/memory.v(25): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.rom(fast)
+# Loading work.fifo(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(39)
+#    Time: 250055 ps  Iteration: 1  Instance: /minilab_test
+# Break at I:/ece554/ECE554_Minilab1/minilab_test.sv line 39
+add wave -position insertpoint sim:/minilab_test/minilab1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: hdoll2  Hostname: WIN-8092  ProcessID: 20496
+#           Attempting to use alternate WLF file "./wlftnjy6eb".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftnjy6eb
+vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt -voptargs=+acc work.minilab_test
+# End time: 19:01:35 on Feb 03,2025, Elapsed time: 0:10:22
+# Errors: 0, Warnings: 13
+# vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt -voptargs="+acc" work.minilab_test 
+# Start time: 19:01:36 on Feb 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Warning: $MODEL_TECH/../intel/verilog/src/altera_mf.v(31792): (vopt-2685) [TFMPC] - Too few port connections for 'DCFIFO_MW'.  Expected 14, found 13.
+# ** Warning: $MODEL_TECH/../intel/verilog/src/altera_mf.v(31792): (vopt-2718) [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "mem_wrapper(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=11.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+add wave -position insertpoint sim:/minilab_test/minilab1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: hdoll2  Hostname: WIN-8092  ProcessID: 20496
+#           Attempting to use alternate WLF file "./wlftxrht2s".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftxrht2s
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(39)
+#    Time: 250055 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat full_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 39
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=11.
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(39)
+#    Time: 250055 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat full_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 39
+# Compile of minilab_test.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(38)
+#    Time: 250015 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat full_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 38
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(38)
+#    Time: 250015 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat full_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 38
+# Compile of minilab_test.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout reached waiting for fifos to reach full state
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(38)
+#    Time: 250015 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat full_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 38
+# Compile of fifo.v was successful.
+# Compile of LPM_ADD_SUB_ip.v was successful.
+# Compile of LPM_MULT_ip.v was successful.
+# Compile of mac.sv was successful.
+# Compile of memory.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+# Compile of minilab_test.sv was successful.
+# Compile of minilab1.sv was successful.
+# Compile of minilab1.sv was successful with warnings.
+# Compile of rom.v was successful with warnings.
+# Compile of input_mem.mif failed with 1 errors.
+# 9 compiles, 1 failed with 1 error.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2685) [TFMPC] - Too few port connections for 'minilab1'.  Expected 13, found 6.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'LEDR'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX5'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX4'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX3'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX2'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX1'.
+# ** Warning: I:/ece554/ECE554_Minilab1/minilab_test.sv(15): (vopt-2718) [TFMPC] - Missing connection for port 'HEX0'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=9.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+# ERR: timeout waiting to fill A_FIFOs
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(109)
+#    Time: 255745 ps  Iteration: 1  Instance: /minilab_test
+# Break in NamedBeginStat filla_to at I:/ece554/ECE554_Minilab1/minilab_test.sv line 109
+# Compile of fifo.v was successful.
+# Compile of LPM_ADD_SUB_ip.v was successful.
+# Compile of LPM_MULT_ip.v was successful.
+# Compile of mac.sv was successful.
+# Compile of memory.v was successful.
+# Compile of minilab_test.sv was successful.
+# Compile of minilab1.sv was successful.
+# Compile of rom.v was successful.
+# Compile of input_mem.mif failed with 1 errors.
+# 9 compiles, 1 failed with 1 error.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+add wave -position insertpoint  \
+sim:/minilab_test/minilab1/cout_reg
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+add wave -position insertpoint sim:/minilab_test/minilab1/mac/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 11630 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+# Compile of minilab1.sv was successful.
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+#   Cout          0:     588
+#   Cout          1:    1036
+#   Cout          2:    1484
+#   Cout          3:    1932
+#   Cout          4:    2380
+#   Cout          5:    2828
+#   Cout          6:    3276
+#   Cout          7:    3724
 # TEST PASSED
 # ///////////////////////////////////////////////////////////////////
 # End of test.
-# ** Note: $stop    : I:/ece554/Minilab1/minilab_test.sv(191)
-#    Time: 12060 ps  Iteration: 2  Instance: /minilab_test
-# Break in Module minilab_test at I:/ece554/Minilab1/minilab_test.sv line 191
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(187)
+#    Time: 11940 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 187
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+# Expected c00: 588, actual:        0
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(150)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 150
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+add wave -position insertpoint  \
+sim:/minilab_test/minilab1/En
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+#   Cout          0:     588
+#   Cout          1:    1036
+#   Cout          2:    1484
+#   Cout          3:    1932
+#   Cout          4:    2380
+#   Cout          5:    2828
+#   Cout          6:    3276
+#   Cout          7:    3724
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# End of test.
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(187)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 187
+# Compile of minilab1.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "minilab1(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab_test(fast)
+# Loading work.minilab1(fast)
+# Loading work.mac(fast)
+# Loading work.LPM_MULT_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_mult(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.LPM_HINT_EVALUATION(fast)
+# Loading work.LPM_ADD_SUB_ip(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model.lpm_add_sub(fast)
+# Loading work.mem_wrapper(fast)
+# Loading work.rom(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altsyncram_body(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.fifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_mixed_widths(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_async(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__2)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_fefifo(fast__1)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_low_latency(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.dcfifo_dffpipe(fast__3)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: I:/ece554/ECE554_Minilab1/rom.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /minilab_test/minilab1/memory/memory File: I:/ece554/ECE554_Minilab1/memory.v Line: 25
+run -all
+# ///////////////////////////////////////////////////////////////////
+# Test 1: test that SM fills up all FIFOs
+# ///////////////////////////////////////////////////////////////////
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 2: Filling the B FIFO from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO entry           1 filled with value: 01
+#   FIFO entry           2 filled with value: 02
+#   FIFO entry           3 filled with value: 03
+#   FIFO entry           4 filled with value: 04
+#   FIFO entry           5 filled with value: 05
+#   FIFO entry           6 filled with value: 06
+#   FIFO entry           7 filled with value: 07
+#   FIFO entry           8 filled with value: 08
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 3: Filling the A FIFOs from memory
+# ///////////////////////////////////////////////////////////////////
+#   FIFO           1, entry           1 filled with value: 11
+#   FIFO           1, entry           2 filled with value: 12
+#   FIFO           1, entry           3 filled with value: 13
+#   FIFO           1, entry           4 filled with value: 14
+#   FIFO           1, entry           5 filled with value: 15
+#   FIFO           1, entry           6 filled with value: 16
+#   FIFO           1, entry           7 filled with value: 17
+#   FIFO           1, entry           8 filled with value: 18
+#   FIFO           2, entry           1 filled with value: 21
+#   FIFO           2, entry           2 filled with value: 22
+#   FIFO           2, entry           3 filled with value: 23
+#   FIFO           2, entry           4 filled with value: 24
+#   FIFO           2, entry           5 filled with value: 25
+#   FIFO           2, entry           6 filled with value: 26
+#   FIFO           2, entry           7 filled with value: 27
+#   FIFO           2, entry           8 filled with value: 28
+#   FIFO           3, entry           1 filled with value: 31
+#   FIFO           3, entry           2 filled with value: 32
+#   FIFO           3, entry           3 filled with value: 33
+#   FIFO           3, entry           4 filled with value: 34
+#   FIFO           3, entry           5 filled with value: 35
+#   FIFO           3, entry           6 filled with value: 36
+#   FIFO           3, entry           7 filled with value: 37
+#   FIFO           3, entry           8 filled with value: 38
+#   FIFO           4, entry           1 filled with value: 41
+#   FIFO           4, entry           2 filled with value: 42
+#   FIFO           4, entry           3 filled with value: 43
+#   FIFO           4, entry           4 filled with value: 44
+#   FIFO           4, entry           5 filled with value: 45
+#   FIFO           4, entry           6 filled with value: 46
+#   FIFO           4, entry           7 filled with value: 47
+#   FIFO           4, entry           8 filled with value: 48
+#   FIFO           5, entry           1 filled with value: 51
+#   FIFO           5, entry           2 filled with value: 52
+#   FIFO           5, entry           3 filled with value: 53
+#   FIFO           5, entry           4 filled with value: 54
+#   FIFO           5, entry           5 filled with value: 55
+#   FIFO           5, entry           6 filled with value: 56
+#   FIFO           5, entry           7 filled with value: 57
+#   FIFO           5, entry           8 filled with value: 58
+#   FIFO           6, entry           1 filled with value: 61
+#   FIFO           6, entry           2 filled with value: 62
+#   FIFO           6, entry           3 filled with value: 63
+#   FIFO           6, entry           4 filled with value: 64
+#   FIFO           6, entry           5 filled with value: 65
+#   FIFO           6, entry           6 filled with value: 66
+#   FIFO           6, entry           7 filled with value: 67
+#   FIFO           6, entry           8 filled with value: 68
+#   FIFO           7, entry           1 filled with value: 71
+#   FIFO           7, entry           2 filled with value: 72
+#   FIFO           7, entry           3 filled with value: 73
+#   FIFO           7, entry           4 filled with value: 74
+#   FIFO           7, entry           5 filled with value: 75
+#   FIFO           7, entry           6 filled with value: 76
+#   FIFO           7, entry           7 filled with value: 77
+#   FIFO           7, entry           8 filled with value: 78
+#   FIFO           8, entry           1 filled with value: 81
+#   FIFO           8, entry           2 filled with value: 82
+#   FIFO           8, entry           3 filled with value: 83
+#   FIFO           8, entry           4 filled with value: 84
+#   FIFO           8, entry           5 filled with value: 85
+#   FIFO           8, entry           6 filled with value: 86
+#   FIFO           8, entry           7 filled with value: 87
+#   FIFO           8, entry           8 filled with value: 88
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# Test 4: checking Cout values
+# ///////////////////////////////////////////////////////////////////
+#   Cout          0:     588
+#   Cout          1:    1036
+#   Cout          2:    1484
+#   Cout          3:    1932
+#   Cout          4:    2380
+#   Cout          5:    2828
+#   Cout          6:    3276
+#   Cout          7:    3724
+# TEST PASSED
+# ///////////////////////////////////////////////////////////////////
+# End of test.
+# ** Note: $stop    : I:/ece554/ECE554_Minilab1/minilab_test.sv(187)
+#    Time: 14180 ps  Iteration: 2  Instance: /minilab_test
+# Break in Module minilab_test at I:/ece554/ECE554_Minilab1/minilab_test.sv line 187
+# End time: 19:34:28 on Feb 03,2025, Elapsed time: 0:32:52
+# Errors: 0, Warnings: 3

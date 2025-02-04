@@ -25,7 +25,6 @@ module minilab_test();
     begin
         CLOCK_50 = 0;
         @(negedge CLOCK_50) KEY[0] = 0;
-        repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1;
 
         ///////////////////////////////////////////////////////////////////
@@ -63,7 +62,6 @@ module minilab_test();
         ///////////////////////////////////////////////////////////////////
         CLOCK_50 = 0;
         @(negedge CLOCK_50) KEY[0] = 0;
-        repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1; 
 
         $display("Test 2: Filling the B FIFO from memory\n///////////////////////////////////////////////////////////////////");
@@ -74,10 +72,10 @@ module minilab_test();
                 $stop();
             end: fillb_to
             begin
-                @(posedge minilab1.state == 2);     // Wait till we enter the FILLB state
+                @(posedge minilab1.state == 3);     // Wait till we enter the FILLB state
                 for (integer i = 0; i < 8; i++) begin
                     @(posedge CLOCK_50);
-                    if (minilab1.next_state !== 0) begin
+                    if (minilab1.next_state !== 1) begin
                         if (!minilab1.wrenB) begin 
                             $display("ERROR: write enable isn't high when data is ready");
                             repeat(1)@(posedge CLOCK_50);
@@ -101,7 +99,6 @@ module minilab_test();
         ///////////////////////////////////////////////////////////////////
         CLOCK_50 = 0;
         @(negedge CLOCK_50) KEY[0] = 0;
-        repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1; 
 
         $display("Test 3: Filling the A FIFOs from memory\n///////////////////////////////////////////////////////////////////");
@@ -112,7 +109,7 @@ module minilab_test();
                 $stop();
             end: filla_to
             begin
-                @(posedge minilab1.state == 1);     // Wait till we enter the FILLA state
+                @(posedge minilab1.state == 2);     // Wait till we enter the FILLA state
 
                 for (int i = 0; i < 8; i++) begin
                     @(posedge |minilab1.wrenA) begin
@@ -144,11 +141,10 @@ module minilab_test();
         ///////////////////////////////////////////////////////////////////
         CLOCK_50 = 0;
         @(negedge CLOCK_50) KEY[0] = 0;
-        repeat(5)@(posedge CLOCK_50);
         @(negedge CLOCK_50) KEY[0] = 1; 
         
         $display("Test 4: checking Cout values\n///////////////////////////////////////////////////////////////////");
-        @(minilab1.state == 5) begin
+        @(minilab1.state == 6) begin
             if (minilab1.cout_reg[0] !== 588) begin
                 $display("Expected c00: 588, actual: %d", minilab1.cout_reg[0]);
                 $stop();
